@@ -4,9 +4,9 @@ from urllib import request
 #@markdown # Imports'
 
 #@markdown + https://raw.githubusercontent.com/7ft10/C4ArchitectureExamples/main/SeventFtNode.py'))
-request.urlretrieve('https://raw.githubusercontent.com/7ft10/C4ArchitectureExamples/main/SeventFtNode.py', 'SeventFtNode.tmp')
+request.urlretrieve('https://raw.githubusercontent.com/7ft10/C4ArchitectureExamples/main/SeventFtNode.py', '_SeventFtNode_.py')
 
-from SeventFtNode import *
+from _SeventFtNode_ import *
 
 #@markdown ----------------------------------------------
 #@markdown # Personas
@@ -35,6 +35,14 @@ class WebApp(SevenftNode):
     "description": "C# Web application"
 })
 class SPA(SevenftNode):
+  def __init__(self):
+    SevenftNode.__init__(self, "Container")
+
+@SevenftNode.metadata({
+    "name": "API",
+    "description": "C# application"
+})
+class API(SevenftNode):
   def __init__(self):
     SevenftNode.__init__(self, "Container")
 
