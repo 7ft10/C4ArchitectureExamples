@@ -80,103 +80,101 @@ class SevenftNode():
     return self.instance
 
 #@markdown ----------------------------------------------
-#@markdown # Our Systems
-class OurSystems():
 
-    #@markdown + Disc (Disc)
-    @SevenftNode.metadata({
-        "name": "Disc",
-        "technology": "IBMi",
-        "description": "http://ddafsd/dsf",
-        "icon_path": SevenftNode.GetIcon("NewRelic.png", "https://icons/NewRelic.png"),
-        "one": "two"
-    })
-    class Disc(SevenftNode):
-      def __init__(self):
+#@markdown + Disc (Disc)
+@SevenftNode.metadata({
+    "name": "Disc",
+    "technology": "IBMi",
+    "description": "http://ddafsd/dsf",
+    "icon_path": SevenftNode.GetIcon("NewRelic.png", "https://icons/NewRelic.png"),
+    "one": "two"
+})
+class Disc(SevenftNode):
+    def __init__(self):
         SevenftNode.__init__(self, "Custom")
 
-    #@markdown + Bamboo (Server) (Bamboo)
-    @SevenftNode.metadata({
-        "name" : "Bamboo (Server)",
-        "technology" : "Linux",
-        "description" : "Bamboo.",
-        "label": SevenftNode.FormatLabel("Bamboo (Server)", "Container", "Linux <br/> bamboo.budgetdirect.com.au <br/> 192.168.61.150"),
-        "_attributes": {
-            "CPU": "",
-            "RAM": "",
-            "Storage": "124.5GB",
-            "Type": "V",
-            "OS": "Linux",
-            "Network Zone": "",
-            "Confluence Application Version": "8.13.2"
-        }
-    })
-    class Bamboo(SevenftNode):
-      def __init__(self):
+#@markdown + Bamboo (Server) (Bamboo)
+@SevenftNode.metadata({
+    "name" : "Bamboo (Server)",
+    "technology" : "Linux",
+    "description" : "Bamboo.",
+    "label": SevenftNode.FormatLabel("Bamboo (Server)", "Container", "Linux <br/> bamboo.budgetdirect.com.au <br/> 192.168.61.150"),
+    "_attributes": {
+        "CPU": "",
+        "RAM": "",
+        "Storage": "124.5GB",
+        "Type": "V",
+        "OS": "Linux",
+        "Network Zone": "",
+        "Confluence Application Version": "8.13.2"
+    }
+})
+class Bamboo(SevenftNode):
+    def __init__(self):
         SevenftNode.__init__(self, "Container")
 
-    #@markdown + Confluence (Server) (Confluence)
-    @SevenftNode.metadata({
-        "name" : "Confluence (Server)",
-        "technology" : "Linux",
-        "description" : "Confluence",
-        "label": SevenftNode.FormatLabel("Confluence (Server)", "Container", "Linux <br/> confluence.budgetdirect.com.au <br/> 192.168.110.100"),
-        "_attributes": {
-            "CPU": "",
-            "RAM": "",
-            "Storage": "124.5GB",
-            "Type": "V",
-            "OS": "Linux",
-            "Network Zone": "",
-            "Confluence Application Version": "8.13.2"
-        }
-    })
-    class Confluence(SevenftNode):
-      def __init__(self):
+#@markdown + Confluence (Server) (Confluence)
+@SevenftNode.metadata({
+    "name" : "Confluence (Server)",
+    "technology" : "Linux",
+    "description" : "Confluence",
+    "label": SevenftNode.FormatLabel("Confluence (Server)", "Container", "Linux <br/> confluence.budgetdirect.com.au <br/> 192.168.110.100"),
+    "_attributes": {
+        "CPU": "",
+        "RAM": "",
+        "Storage": "124.5GB",
+        "Type": "V",
+        "OS": "Linux",
+        "Network Zone": "",
+        "Confluence Application Version": "8.13.2"
+    }
+})
+class Confluence(SevenftNode):
+    def __init__(self):
         SevenftNode.__init__(self, "Container")
 
-    #@markdown + Jira (Server) (Jira)
-    @SevenftNode.metadata({
-        "name" : "Jira (Server)",
-        "technology" : "Linux",
-        "description" : "jira.budgetdirect.com.au",
-        "label": SevenftNode.FormatLabel("Jira (Server)", "Container", "Linux <br/> jira.budgetdirect.com.au <br/> 192.168.110.46"),
-        "_attributes": {
-            "CPU": "",
-            "RAM": "",
-            "Storage": "124.5GB",
-            "Type": "V",
-            "OS": "Linux",
-            "Network Zone": "",
-            "Confluence Application Version": "8.13.2"
-        }
-    })
-    class Jira(SevenftNode):
-      def __init__(self):
+#@markdown + Jira (Server) (Jira)
+@SevenftNode.metadata({
+    "name" : "Jira (Server)",
+    "technology" : "Linux",
+    "description" : "jira.budgetdirect.com.au",
+    "label": SevenftNode.FormatLabel("Jira (Server)", "Container", "Linux <br/> jira.budgetdirect.com.au <br/> 192.168.110.46"),
+    "_attributes": {
+        "CPU": "",
+        "RAM": "",
+        "Storage": "124.5GB",
+        "Type": "V",
+        "OS": "Linux",
+        "Network Zone": "",
+        "Confluence Application Version": "8.13.2"
+    }
+})
+class Jira(SevenftNode):
+    def __init__(self):
         SevenftNode.__init__(self, "Container")
 
-    #@markdown + Active Directory (ActiveDirectory)
-    @SevenftNode.metadata({
-        "label" : "Active Directory",
-        "icon_path" : SevenftNode.GetIcon("ActiveDirectory.png", "https://www.outsystems.com/Forge_CW/_image.aspx/Q8LvY--6WakOw9afDCuuGXsjTvpZCo5fbFxdpi8oIBI=/active-directory-core-simplified-2023-01-04%2000-00-00-2023-05-05%2011-44-13")
-    })
-    class ActiveDirectory(SevenftNode):
-      def __init__(self):
+#@markdown + Active Directory (ActiveDirectory)
+@SevenftNode.metadata({
+    "label" : "Active Directory",
+    "icon_path" : SevenftNode.GetIcon("ActiveDirectory.png", "https://www.outsystems.com/Forge_CW/_image.aspx/Q8LvY--6WakOw9afDCuuGXsjTvpZCo5fbFxdpi8oIBI=/active-directory-core-simplified-2023-01-04%2000-00-00-2023-05-05%2011-44-13")
+})
+class ActiveDirectory(SevenftNode):
+    def __init__(self):
         SevenftNode.__init__(self, "Custom")
 
-    #@markdown + The Hub (TheHub)
-    @SevenftNode.metadata({
-        "name" : "The Hub",
-        "description" : "The hub.",
-        "_attributes": {
-            "Notes": """
-                    Part of the on-prem confluence implementation,
-                    to be migrated not a new system.
-                    """,
-        }
-    })
-    class TheHub(SevenftNode):
-      def __init__(self):
+#@markdown + The Hub (TheHub)
+@SevenftNode.metadata({
+    "name" : "The Hub",
+    "description" : "The hub.",
+    "_attributes": {
+        "Notes": """
+                Part of the on-prem confluence implementation,
+                to be migrated not a new system.
+                """,
+    }
+})
+class TheHub(SevenftNode):
+    def __init__(self):
         SevenftNode.__init__(self, "System")
 
 #@markdown ---
