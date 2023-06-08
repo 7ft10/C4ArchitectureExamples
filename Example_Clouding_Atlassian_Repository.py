@@ -28,7 +28,7 @@ class Disc(SevenftNode):
     "name" : "Bamboo (Server)",
     "technology" : "Linux",
     "description" : "Bamboo.",
-    "label": SevenftNode.FormatLabel("Bamboo (Server)", "Container", "Linux <br/> bamboo.budgetdirect.com.au <br/> 192.168.61.150"),
+    "label": SevenftNode.FormatLabel("Bamboo (Server)", "Container", "Linux <br/> bamboo.internal.server.com.au <br/> 192.168.61.150"),
     "_attributes": {
         "CPU": "",
         "RAM": "",
@@ -48,7 +48,7 @@ class Bamboo(SevenftNode):
     "name" : "Confluence (Server)",
     "technology" : "Linux",
     "description" : "Confluence",
-    "label": SevenftNode.FormatLabel("Confluence (Server)", "Container", "Linux <br/> confluence.budgetdirect.com.au <br/> 192.168.110.100"),
+    "label": SevenftNode.FormatLabel("Confluence (Server)", "Container", "Linux <br/> confluence.internal.server.com.au <br/> 192.168.110.100"),
     "_attributes": {
         "CPU": "",
         "RAM": "",
@@ -67,8 +67,8 @@ class Confluence(SevenftNode):
 @SevenftNode.metadata({
     "name" : "Jira (Server)",
     "technology" : "Linux",
-    "description" : "jira.budgetdirect.com.au",
-    "label": SevenftNode.FormatLabel("Jira (Server)", "Container", "Linux <br/> jira.budgetdirect.com.au <br/> 192.168.110.46"),
+    "description" : "jira.internal.server.com.au",
+    "label": SevenftNode.FormatLabel("Jira (Server)", "Container", "Linux <br/> jira.internal.server.com.au <br/> 192.168.110.46"),
     "_attributes": {
         "CPU": "",
         "RAM": "",
@@ -111,8 +111,8 @@ class TheHub(SevenftNode):
 @SevenftNode.metadata({
     "name" : "Confluence (Server) (Non-Prod)",
     "technology" : "Linux",
-    "description" : "df-conflu-app.budgetdirect.com.au",
-    "label": SevenftNode.FormatLabel("Confluence (Server) (Non-Prod)", "Container", "Linux <br/> df-conflu-app.budgetdirect.com.au <br/> 192.168.61.164"),
+    "description" : "df-conflu-app.internal.server.com.au",
+    "label": SevenftNode.FormatLabel("Confluence (Server) (Non-Prod)", "Container", "Linux <br/> df-conflu-app.internal.server.com.au <br/> 192.168.61.164"),
     "_attributes": {
         "CPU": "",
         "RAM": "",
@@ -131,8 +131,8 @@ class ConfluenceNonProd(SevenftNode):
 @SevenftNode.metadata({
     "name" : "Jira (Server) (Non-Prod)",
     "technology" : "Linux",
-    "description" : "jiradev.budgetdirect.com.au",
-    "label": SevenftNode.FormatLabel("Jira (Server) (Non-Prod)", "Container", "Linux <br/> jiradev.budgetdirect.com.au <br/> 192.168.64.22"),
+    "description" : "jiradev.internal.server.com.au",
+    "label": SevenftNode.FormatLabel("Jira (Server) (Non-Prod)", "Container", "Linux <br/> jiradev.internal.server.com.au <br/> 192.168.64.22"),
     "_attributes": {
         "CPU": "",
         "RAM": "",
