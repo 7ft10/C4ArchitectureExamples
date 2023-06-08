@@ -4,6 +4,7 @@
 		"fontsize",
 		"mobileapp",
 		"outformat",
-		"regx"
+		"regx",
+		"startswith"
 	]
 }
