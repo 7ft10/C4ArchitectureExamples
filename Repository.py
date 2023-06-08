@@ -79,7 +79,10 @@ class SevenftNode():
           self.instance = System( md.pop('name'), md.pop('description'), md.pop('external'), **md )
     return self.instance
 
+#@title Repository
+
 #@markdown ----------------------------------------------
+#@markdown # Our Systems
 
 #@markdown + Disc (Disc)
 @SevenftNode.metadata({
@@ -90,8 +93,8 @@ class SevenftNode():
     "one": "two"
 })
 class Disc(SevenftNode):
-    def __init__(self):
-        SevenftNode.__init__(self, "Custom")
+  def __init__(self):
+    SevenftNode.__init__(self, "Custom")
 
 #@markdown + Bamboo (Server) (Bamboo)
 @SevenftNode.metadata({
@@ -110,8 +113,8 @@ class Disc(SevenftNode):
     }
 })
 class Bamboo(SevenftNode):
-    def __init__(self):
-        SevenftNode.__init__(self, "Container")
+  def __init__(self):
+    SevenftNode.__init__(self, "Container")
 
 #@markdown + Confluence (Server) (Confluence)
 @SevenftNode.metadata({
@@ -130,8 +133,8 @@ class Bamboo(SevenftNode):
     }
 })
 class Confluence(SevenftNode):
-    def __init__(self):
-        SevenftNode.__init__(self, "Container")
+  def __init__(self):
+    SevenftNode.__init__(self, "Container")
 
 #@markdown + Jira (Server) (Jira)
 @SevenftNode.metadata({
@@ -150,8 +153,8 @@ class Confluence(SevenftNode):
     }
 })
 class Jira(SevenftNode):
-    def __init__(self):
-        SevenftNode.__init__(self, "Container")
+  def __init__(self):
+    SevenftNode.__init__(self, "Container")
 
 #@markdown + Active Directory (ActiveDirectory)
 @SevenftNode.metadata({
@@ -159,8 +162,8 @@ class Jira(SevenftNode):
     "icon_path" : SevenftNode.GetIcon("ActiveDirectory.png", "https://www.outsystems.com/Forge_CW/_image.aspx/Q8LvY--6WakOw9afDCuuGXsjTvpZCo5fbFxdpi8oIBI=/active-directory-core-simplified-2023-01-04%2000-00-00-2023-05-05%2011-44-13")
 })
 class ActiveDirectory(SevenftNode):
-    def __init__(self):
-        SevenftNode.__init__(self, "Custom")
+  def __init__(self):
+    SevenftNode.__init__(self, "Custom")
 
 #@markdown + The Hub (TheHub)
 @SevenftNode.metadata({
@@ -174,48 +177,183 @@ class ActiveDirectory(SevenftNode):
     }
 })
 class TheHub(SevenftNode):
-    def __init__(self):
-        SevenftNode.__init__(self, "System")
+  def __init__(self):
+    SevenftNode.__init__(self, "System")
 
-#@markdown ---
-#@markdown # Our Data Stores
-class OurDataStores():
-
-  #@markdown + Oracle Database (OracleDB)
-  def OracleDB():
-    return {
-      "name" : "Oracle DB",
-      "technology" : "Oracle Database",
-      "description" : "Stores user registration information, hashed authentication credentials, access logs, etc.",
+#@markdown + Confluence (Server) (Confluence)
+@SevenftNode.metadata({
+    "name" : "Confluence (Server) (Non-Prod)",
+    "technology" : "Linux",
+    "description" : "df-conflu-app.budgetdirect.com.au",
+    "label": SevenftNode.FormatLabel("Confluence (Server) (Non-Prod)", "Container", "Linux <br/> df-conflu-app.budgetdirect.com.au <br/> 192.168.61.164"),
+    "_attributes": {
+        "CPU": "",
+        "RAM": "",
+        "Storage": "124.5GB",
+        "Type": "V",
+        "OS": "Linux",
+        "Network Zone": "",
+        "Confluence Application Version": "8.13.2"
     }
+})
+class ConfluenceNonProd(SevenftNode):
+  def __init__(self):
+    SevenftNode.__init__(self, "Container")
+
+#@markdown + Jira (Server) (Jira)
+@SevenftNode.metadata({
+    "name" : "Jira (Server) (Non-Prod)",
+    "technology" : "Linux",
+    "description" : "jiradev.budgetdirect.com.au",
+    "label": SevenftNode.FormatLabel("Jira (Server) (Non-Prod)", "Container", "Linux <br/> jiradev.budgetdirect.com.au <br/> 192.168.64.22"),
+    "_attributes": {
+        "CPU": "",
+        "RAM": "",
+        "Storage": "124.5GB",
+        "Type": "V",
+        "OS": "Linux",
+        "Network Zone": "",
+        "Confluence Application Version": "8.13.2"
+    }
+})
+class JiraNonProd(SevenftNode):
+  def __init__(self):
+    SevenftNode.__init__(self, "Container")
+
+#@markdown + BitBucket (BitBucket)
+@SevenftNode.metadata({
+    "label" : "BitBucket",
+    "icon_path" : SevenftNode.GetIcon("BitBucket.png", "https://bitbucket.icon")
+})
+class BitBucket(SevenftNode):
+  def __init__(self):
+    SevenftNode.__init__(self, "Container")
+
+#@markdown + Jenkins (Jenkins)
+@SevenftNode.metadata({
+    "label" : "Jenkins",
+    "icon_path" : SevenftNode.GetIcon("Jenkins.png", "https://jenkins.icon")
+})
+class Jenkins(SevenftNode):
+  def __init__(self):
+    SevenftNode.__init__(self, "Custom")
+
+#@markdown + Power BI (PowerBI)
+@SevenftNode.metadata({
+    "label" : "Power BI",
+    "icon_path" : SevenftNode.GetIcon("PowerBI.png", "https://www.clipartmax.com/png/middle/16-161548_power-bi-logo-microsoft-vector-eps-free-download-icons-power-bi-logo.png")
+})
+class PowerBI(SevenftNode):
+  def __init__(self):
+    SevenftNode.__init__(self, "Custom")
+
+#@markdown + Service Now (ServiceNow)
+@SevenftNode.metadata({
+    "label" : "Service Now",
+    "icon_path" : SevenftNode.GetIcon("ServiceNow.png", "https://servicenow.icon")
+})
+class ServiceNow(SevenftNode):
+  def __init__(self):
+    SevenftNode.__init__(self, "Custom")
+
+
+#@markdown + GitLab (GitLab)
+@SevenftNode.metadata({
+    "label" : "GitLab",
+    "icon_path" : SevenftNode.GetIcon("Gitlab.png", "https://about.gitlab.com/images/press/logo/png/gitlab-logo-100.png")
+})
+class GitLab(SevenftNode):
+  def __init__(self):
+    SevenftNode.__init__(self, "Custom")
+
+#@markdown + Okta (Okta)
+@SevenftNode.metadata({
+    "label" : "Okta",
+    "icon_path" : SevenftNode.GetIcon("Okta.png", "https://okta.icon")
+})
+class Okta(SevenftNode):
+  def __init__(self):
+    SevenftNode.__init__(self, "Custom")
+
+#@markdown + Citrix (Citrix)
+@SevenftNode.metadata({
+    "label" : "Citrix",
+    "icon_path" : SevenftNode.GetIcon("Citrix.png", "https://citrix.icon")
+})
+class Citrix(SevenftNode):
+  def __init__(self):
+    SevenftNode.__init__(self, "Custom")
+
+#@markdown + Global Protect (GlobalProtect)
+@SevenftNode.metadata({
+    "label" : "Global Protect",
+    "icon_path" : SevenftNode.GetIcon("GlobalProtect.png", "https://globalprotect.icon")
+})
+class GlobalProtect(SevenftNode):
+  def __init__(self):
+    SevenftNode.__init__(self, "Custom")
+
+
+#@markdown + Confluence (Atlassian) (Confluence)
+@SevenftNode.metadata({
+    "name" : "Confluence (Atlassian)",
+    "technology" : "Cloud",
+    "description" : "Confluence",
+    "label": SevenftNode.FormatLabel("Confluence (Server)", "SAAS", "Atlassian"),
+    "_attributes": {
+        "one": "two"
+    }
+})
+class ConfluenceCloud(SevenftNode):
+  def __init__(self):
+    SevenftNode.__init__(self, "System")
+
+#@markdown + Jira (Atlassian) (Jira)
+@SevenftNode.metadata({
+    "name" : "Jira (Atlassian)",
+    "technology" : "Linux",
+    "description" : "Jira",
+    "label": SevenftNode.FormatLabel("Jira (Server)", "SAAS", "Atlassian"),
+})
+class JiraCloud(SevenftNode):
+  def __init__(self):
+    SevenftNode.__init__(self, "System")
+
+#@markdown + NewRelic (NewRelic)
+@SevenftNode.metadata({
+    "label" : "NewRelic",
+    "icon_path" : SevenftNode.GetIcon("NewRelic.png", "https://icons/NewRelic.png")
+})
+class NewRelic(SevenftNode):
+  def __init__(self):
+    SevenftNode.__init__(self, "Custom")
 
 #@markdown ----------------------------------------------
-#@markdown # Our External Systems
-class OurExternalSystems():
+#@markdown ## Personas
 
-  #@markdown + E-mail System (Email)
-  def Email():
-    return {
-      "name" : "E-mail System",
-      "description" : "The internal Microsoft Exchange e-mail system.",
-      "external" : True
-    }
+#@markdown + A&G Internal Users (AGInternalUsers)
+@SevenftNode.metadata({
+    "name" : "A&G Internal Users",
+    "description" : "A&G Internal Users."
+})
+class AGInternalUsers(SevenftNode):
+  def __init__(self):
+    SevenftNode.__init__(self, "Person")
 
-  #@markdown + Mainframe Banking System (Mainframe)
-  def Mainframe():
-    return {
-      "name" : "Mainframe Banking System",
-      "description" : "Stores all of the core banking information about customers, accounts, transactions, etc.",
-      "external" : True
-    }
+#@markdown + A&G Remote Users (AGRemoteUsers)
+@SevenftNode.metadata({
+    "name" : "A&G Remote Users",
+    "description" : "A&G Remote Users."
+})
+class AGRemoteUsers(SevenftNode):
+  def __init__(self):
+    SevenftNode.__init__(self, "Person")
 
-#@markdown ----------------------------------------------
-#@markdown # Our Personas
-class OurPersonas():
-
-  #@markdown + Banking Customer (BankingCustomer)
-  def BankingCustomer():
-    return {
-      "name" : "Personal Banking Customer",
-      "description" : "A customer of the bank, with personal bank accounts."
-    }
+#@markdown + A&G External Users (AGExternalUsers)
+@SevenftNode.metadata({
+    "name" : "A&G External Users",
+    "description" : "A&G External Users."
+})
+class AGExternalUsers(SevenftNode):
+  def __init__(self):
+    SevenftNode.__init__(self, "Person")
