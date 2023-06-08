@@ -1,5 +1,6 @@
 #@title Repository
 from urllib import request
+from SeventFtNode import SevenftNode
 
 #@markdown # Imports'
 #@markdown + https://raw.githubusercontent.com/7ft10/C4ArchitectureExamples/main/SeventFtNode.py'))
