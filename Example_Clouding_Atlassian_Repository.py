@@ -29,15 +29,13 @@ class Disc(SevenftNode):
     "technology" : "Linux",
     "description" : "Bamboo.",
     "label": SevenftNode.FormatLabel("Bamboo (Server)", "Container", "Linux <br/> bamboo.internal.server.com.au <br/> 192.168.61.150"),
-    "_attributes": {
-        "CPU": "",
-        "RAM": "",
-        "Storage": "124.5GB",
-        "Type": "V",
-        "OS": "Linux",
-        "Network Zone": "",
-        "Confluence Application Version": "8.13.2"
-    }
+	"CPU": "",
+	"RAM": "",
+	"Storage": "124.5GB",
+	"Type": "V",
+	"OS": "Linux",
+	"Network Zone": "",
+	"Confluence Application Version": "8.13.2"
 })
 class Bamboo(SevenftNode):
   def __init__(self):
@@ -49,15 +47,13 @@ class Bamboo(SevenftNode):
     "technology" : "Linux",
     "description" : "Confluence",
     "label": SevenftNode.FormatLabel("Confluence (Server)", "Container", "Linux <br/> confluence.internal.server.com.au <br/> 192.168.110.100"),
-    "_attributes": {
-        "CPU": "",
-        "RAM": "",
-        "Storage": "124.5GB",
-        "Type": "V",
-        "OS": "Linux",
-        "Network Zone": "",
-        "Confluence Application Version": "8.13.2"
-    }
+	"CPU": "",
+	"RAM": "",
+	"Storage": "124.5GB",
+	"Type": "V",
+	"OS": "Linux",
+	"Network Zone": "",
+	"Confluence Application Version": "8.13.2"
 })
 class Confluence(SevenftNode):
   def __init__(self):
@@ -69,15 +65,13 @@ class Confluence(SevenftNode):
     "technology" : "Linux",
     "description" : "jira.internal.server.com.au",
     "label": SevenftNode.FormatLabel("Jira (Server)", "Container", "Linux <br/> jira.internal.server.com.au <br/> 192.168.110.46"),
-    "_attributes": {
-        "CPU": "",
-        "RAM": "",
-        "Storage": "124.5GB",
-        "Type": "V",
-        "OS": "Linux",
-        "Network Zone": "",
-        "Confluence Application Version": "8.13.2"
-    }
+	"CPU": "",
+	"RAM": "",
+	"Storage": "124.5GB",
+	"Type": "V",
+	"OS": "Linux",
+	"Network Zone": "",
+	"Confluence Application Version": "8.13.2"
 })
 class Jira(SevenftNode):
   def __init__(self):
@@ -96,12 +90,10 @@ class ActiveDirectory(SevenftNode):
 @SevenftNode.metadata({
     "name" : "The Hub",
     "description" : "The hub.",
-    "_attributes": {
-        "Notes": """
-                Part of the on-prem confluence implementation,
-                to be migrated not a new system.
-                """,
-    }
+	"Notes": """
+			Part of the on-prem confluence implementation,
+			to be migrated not a new system.
+			"""
 })
 class TheHub(SevenftNode):
   def __init__(self):
@@ -113,15 +105,13 @@ class TheHub(SevenftNode):
     "technology" : "Linux",
     "description" : "df-conflu-app.internal.server.com.au",
     "label": SevenftNode.FormatLabel("Confluence (Server) (Non-Prod)", "Container", "Linux <br/> df-conflu-app.internal.server.com.au <br/> 192.168.61.164"),
-    "_attributes": {
-        "CPU": "",
-        "RAM": "",
-        "Storage": "124.5GB",
-        "Type": "V",
-        "OS": "Linux",
-        "Network Zone": "",
-        "Confluence Application Version": "8.13.2"
-    }
+	"CPU": "",
+	"RAM": "",
+	"Storage": "124.5GB",
+	"Type": "V",
+	"OS": "Linux",
+	"Network Zone": "",
+	"Confluence Application Version": "8.13.2"
 })
 class ConfluenceNonProd(SevenftNode):
   def __init__(self):
@@ -133,15 +123,13 @@ class ConfluenceNonProd(SevenftNode):
     "technology" : "Linux",
     "description" : "jiradev.internal.server.com.au",
     "label": SevenftNode.FormatLabel("Jira (Server) (Non-Prod)", "Container", "Linux <br/> jiradev.internal.server.com.au <br/> 192.168.64.22"),
-    "_attributes": {
-        "CPU": "",
-        "RAM": "",
-        "Storage": "124.5GB",
-        "Type": "V",
-        "OS": "Linux",
-        "Network Zone": "",
-        "Confluence Application Version": "8.13.2"
-    }
+	"CPU": "",
+	"RAM": "",
+	"Storage": "124.5GB",
+	"Type": "V",
+	"OS": "Linux",
+	"Network Zone": "",
+	"Confluence Application Version": "8.13.2"
 })
 class JiraNonProd(SevenftNode):
   def __init__(self):
@@ -227,9 +215,7 @@ class GlobalProtect(SevenftNode):
     "technology" : "Cloud",
     "description" : "Confluence",
     "label": SevenftNode.FormatLabel("Confluence (Server)", "SAAS", "Atlassian"),
-    "_attributes": {
-        "one": "two"
-    }
+    "one": "two"
 })
 class ConfluenceCloud(SevenftNode):
   def __init__(self):
