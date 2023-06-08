@@ -6,5 +6,11 @@
 		"outformat",
 		"regx",
 		"startswith"
-	]
+	],
+	"files.exclude": {
+		"**/_**_.*": true,
+		"**/__pycache__": true,
+		"**/**.png": true,
+		"**/**.jpg": true
+	}
 }
