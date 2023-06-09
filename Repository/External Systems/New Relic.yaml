@@ -1,7 +1,6 @@
-id: Disc
+id: NewRelic
 nodeType: Custom
-name: Disc
+name: NewRelic
 description: |-
-  Several lines of text
-technology: IBMi
+  NewRelic
 icon: https://newrelic.com/themes/custom/erno/assets/mediakit/new_relic_logo_vertical.png
