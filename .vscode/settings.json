@@ -2,5 +2,9 @@
 	"cSpell.words": [
 		"fontsize",
 		"outformat"
-	]
+	],
+	"files.exclude": {
+		"_*.*": true,
+		"**/__**__/**": true
+	}
 }

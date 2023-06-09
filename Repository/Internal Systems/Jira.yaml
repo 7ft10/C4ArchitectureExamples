@@ -1,0 +1,19 @@
+id: Jira
+nodeType: Container
+name: Jira (Server)
+description: |-
+  Jira
+technology: Linux
+icon:
+label: |-
+  Bamboo (Server)
+  Container Linux <br/>
+  jira.internal.server.com.au <br/>
+  192.168.110.100
+CPU:
+RAM:
+Storage: 124.5GB
+Type: V
+OS: Linux
+Network Zone:
+Application Version: 8.13.2
