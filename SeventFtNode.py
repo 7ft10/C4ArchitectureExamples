@@ -1,9 +1,10 @@
 #@title Repository
+import os
+import yaml
 from diagrams.c4 import Person, Container, Database, System
 from diagrams.custom import Custom
-from urllib.request import urlretrieve
+from urllib import request, parse
 from IPython.display import display, Markdown
-import yaml
 
 class SevenftNode():
   def __init__(self, nodeType: str):
@@ -22,10 +23,10 @@ class SevenftNode():
   @staticmethod
   def GetIcon(name: str, url: str):
     try:
-        urlretrieve(url, name)
+        request.urlretrieve(url, name)
     except:
         try:
-          urlretrieve("https://cdn-icons-png.flaticon.com/512/10448/10448063.png", name)
+          request.urlretrieve("https://cdn-icons-png.flaticon.com/512/10448/10448063.png", name)
         except:
           pass
     return name
@@ -38,9 +39,13 @@ class SevenftNode():
     return f"<{title}{subtitle}{text}>"
 
   @staticmethod
-  def LoadFromYaml(yamlFileLoc: str):
+  def LoadFromYaml(url: str):
     archetype = None
-    with open(yamlFileLoc, "r") as stream:
+    a = parse.urlparse(url)
+    path = os.path.basename(a.path)
+    request.urlretrieve(url, "_" + path)
+
+    with open(path, "r") as stream:
         try:
             archetype = yaml.safe_load(stream)
         except yaml.YAMLError as exc:
