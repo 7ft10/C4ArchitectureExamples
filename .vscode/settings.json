@@ -4,7 +4,7 @@
 		"outformat"
 	],
 	"files.exclude": {
-		"_*.*": true,
+		"_*": true,
 		"**/__**__/**": true
 	}
 }
