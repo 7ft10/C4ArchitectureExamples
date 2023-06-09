@@ -56,7 +56,7 @@ class SevenftNode():
         "node_type": archetype.pop("nodeType"),
         "metadata": archetype
     })
-    return globals()[id]
+    return globals()[id]()
 
   def Print(self):
     if (self.metadata != None) and (isinstance(self.metadata, type({}))):
