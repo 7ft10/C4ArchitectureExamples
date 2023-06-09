@@ -10,7 +10,7 @@ class SevenftNode():
   def __init__(self, nodeType: str):
     self.nodeType = nodeType
     self.instance = None
-    self.default_icon = 'https://cdn-icons-png.flaticon.com/512/10448/10448063.png'
+    self.default_icon = SevenftNode.GetIcon('_default_icon.png', 'https://cdn-icons-png.flaticon.com/512/10448/10448063.png')
 
   @staticmethod
   def metadata(args = {}):
@@ -26,10 +26,7 @@ class SevenftNode():
     try:
       request.urlretrieve(url, name)
     except:
-      try:
-        request.urlretrieve(SevenftNode.default_icon, name)
-      except:
-        pass
+      return SevenftNode.default_icon
     return name
 
   @staticmethod
@@ -85,7 +82,7 @@ class SevenftNode():
           md.setdefault('external', False)
           self.instance = Person( md.pop('name'), md.pop('description'), md.pop('external'), **md )
         case "Custom":
-          ##md.setdefault('icon_path', "Icon path missing")
+          md.setdefault('icon_path', SevenftNode.default_icon)
           name = md.pop('name')
           if "label" in md:
             name = md.pop('label')
