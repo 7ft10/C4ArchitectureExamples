@@ -42,8 +42,8 @@ class SevenftNode():
   def LoadFromYaml(url: str):
     archetype = None
     a = parse.urlparse(url)
-    path = os.path.basename(a.path)
-    request.urlretrieve(url, "_" + path)
+    path = "_" + os.path.basename(a.path) ## Temp file
+    request.urlretrieve(url, path)
 
     with open(path, "r") as stream:
         try:
