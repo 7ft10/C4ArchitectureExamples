@@ -18,15 +18,15 @@ globals()['Personas'] = cPersonas()
 #@markdown # Internal Systems
 class cInternalSystems():
   def __init__(self):
-    self.Disc = SevenftNode.LoadFromYaml(baseUrl + 'Repository/Internal Systems/Disc.yaml')
-    self.Bamboo = SevenftNode.LoadFromYaml(baseUrl + 'Repository/Internal Systems/Bamboo.yaml')
-    self.Confluence = SevenftNode.LoadFromYaml(baseUrl + 'Repository/Internal Systems/Confluence.yaml')
+    self.Disc = SevenftNode.LoadFromYaml(baseUrl + 'Repository/Internal%20Systems/Disc.yaml')
+    self.Bamboo = SevenftNode.LoadFromYaml(baseUrl + 'Repository/Internal%20Systems/Bamboo.yaml')
+    self.Confluence = SevenftNode.LoadFromYaml(baseUrl + 'Repository/Internal%20Systems/Confluence.yaml')
 
 globals()['InternalSystems'] = cInternalSystems()
 
 #@markdown # External Systems
 class cExternalSystems():
   def __init__(self):
-    self.NewRelic = SevenftNode.LoadFromYaml(baseUrl + 'Repository/External Systems/New%20Relic.yaml')
+    self.NewRelic = SevenftNode.LoadFromYaml(baseUrl + 'Repository/External%20Systems/New%20Relic.yaml')
 
 globals()['ExternalSystems'] = cExternalSystems()
