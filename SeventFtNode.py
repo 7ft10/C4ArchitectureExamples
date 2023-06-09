@@ -52,7 +52,7 @@ class SevenftNode():
       except yaml.YAMLError as exc:
         display(exc)
 
-    id = str(archetype.pop('id'))
+    id = str(archetype.get('id'))
     globals()[id] = type(id, (SevenftNode, ), {
       "__init__": lambda self : SevenftNode.__init__(self, self.node_type),
       "node_type": archetype.pop("nodeType"),
