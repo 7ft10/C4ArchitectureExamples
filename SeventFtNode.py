@@ -10,6 +10,7 @@ class SevenftNode():
   def __init__(self, nodeType: str):
     self.nodeType = nodeType
     self.instance = None
+    self.default_icon = 'https://cdn-icons-png.flaticon.com/512/10448/10448063.png'
 
   @staticmethod
   def metadata(args = {}):
@@ -23,12 +24,12 @@ class SevenftNode():
   @staticmethod
   def GetIcon(name: str, url: str):
     try:
-        request.urlretrieve(url, name)
+      request.urlretrieve(url, name)
     except:
-        try:
-          request.urlretrieve("https://cdn-icons-png.flaticon.com/512/10448/10448063.png", name)
-        except:
-          pass
+      try:
+        request.urlretrieve(SevenftNode.default_icon, name)
+      except:
+        pass
     return name
 
   @staticmethod
@@ -46,20 +47,16 @@ class SevenftNode():
     request.urlretrieve(url, path)
 
     with open(path, "r") as stream:
-        try:
-            archetype = yaml.safe_load(stream)
-        except yaml.YAMLError as exc:
-            display(exc)
-
-    # constructor
-    def constructor(self):
-        SevenftNode.__init__(self, self.node_type)
+      try:
+        archetype = yaml.safe_load(stream)
+      except yaml.YAMLError as exc:
+        display(exc)
 
     id = str(archetype.pop('id'))
     globals()[id] = type(id, (SevenftNode, ), {
-        "__init__": constructor,
-        "node_type": archetype.pop("nodeType"),
-        "metadata": archetype
+      "__init__": lambda self : SevenftNode.__init__(self, self.node_type),
+      "node_type": archetype.pop("nodeType"),
+      "metadata": archetype
     })
     return globals()[id]()
 
@@ -76,8 +73,10 @@ class SevenftNode():
         display(Markdown(table))
 
   def Get(self):
-    md = self.metadata.copy()
+    md: dict = self.metadata.copy()
     if (self.instance == None):
+      if (md.get("icon") != None):
+        md["icon_path"] = SevenftNode.GetIcon("_" + md.get('name') + ".png", md.get("icon")),
       match self.nodeType:
         case "Container":
           md.setdefault('technology', "Technology missing")

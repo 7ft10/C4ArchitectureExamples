@@ -2,27 +2,27 @@
 from urllib import request
 from SeventFtNode import SevenftNode
 
-#@markdown # Imports'
-#@markdown + https://raw.githubusercontent.com/7ft10/C4ArchitectureExamples/main/SeventFtNode.py'))
-request.urlretrieve('https://raw.githubusercontent.com/7ft10/C4ArchitectureExamples/main/SeventFtNode.py', '_SeventFtNode_.py')
+baseUrl = "https://raw.githubusercontent.com/7ft10/C4ArchitectureExamples/main/"
 
-from _SeventFtNode_ import *
+#@markdown # Imports
+request.urlretrieve(baseUrl + 'SeventFtNode.py', '_SeventFtNode_.py')
+from _SeventFtNode_ import SevenftNode
 
 #@markdown ----------------------------------------------
+#@markdown ## Personas
+
+InternalUser = SevenftNode.LoadFromYaml(baseUrl + 'Repository/Personas/Internal%20User.yaml')
+
+#@markdown ----------------------------------------------
+#@markdown # Systems
+
+Disc = SevenftNode.LoadFromYaml(baseUrl + 'Repository/Systems/Disc.yaml')
+
+#@markdown ----------------------------------------------
+#@markdown ----------------------------------------------
+#@markdown ----------------------------------------------
+#@markdown ----------------------------------------------
 #@markdown # Our Systems
-
-#@markdown + Disc (Disc)
-@SevenftNode.metadata({
-    "name": "Disc",
-    "technology": "IBMi",
-    "description": "http://ddafsd/dsf",
-    "icon_path": SevenftNode.GetIcon("NewRelic.png", "https://icons/NewRelic.png"),
-    "one": "two"
-})
-class Disc(SevenftNode):
-  def __init__(self):
-    SevenftNode.__init__(self, "Custom")
-
 #@markdown + Bamboo (Server) (Bamboo)
 @SevenftNode.metadata({
     "name" : "Bamboo (Server)",
@@ -244,16 +244,7 @@ class NewRelic(SevenftNode):
 #@markdown ----------------------------------------------
 #@markdown ## Personas
 
-#@markdown + Internal Users (InternalUser)
-@SevenftNode.metadata({
-    "name" : "Internal Users",
-    "description" : "Internal Users."
-})
-class InternalUser(SevenftNode):
-  def __init__(self):
-    SevenftNode.__init__(self, "Person")
-
-#@markdown + Remote Users (AGRemoteUsers)
+#@markdown + Remote Users (RemoteUsers)
 @SevenftNode.metadata({
     "name" : "Remote Users",
     "description" : "Remote Users."
@@ -262,7 +253,7 @@ class RemoteUser(SevenftNode):
   def __init__(self):
     SevenftNode.__init__(self, "Person")
 
-#@markdown + External Users (AGExternalUsers)
+#@markdown + External Users (ExternalUsers)
 @SevenftNode.metadata({
     "name" : "External Users",
     "description" : "External Users."
