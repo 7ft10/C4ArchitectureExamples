@@ -1,0 +1,20 @@
+id: Bamboo
+nodeType: Container
+name: Bamboo (Server)
+description: |-
+  Bamboo
+technology: Linux
+icon: https://newrelic.com/themes/custom/erno/assets/mediakit/new_relic_logo_vertical.png
+one: two
+label: |-
+  Bamboo (Server)
+  Container Linux <br/>
+  bamboo.internal.server.com.au <br/>
+  192.168.61.150
+CPU:
+RAM:
+Storage: 124.5GB
+Type: V
+OS: Linux
+Network Zone:
+Confluence Application Version: 8.13.2
