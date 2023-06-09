@@ -1,10 +1,7 @@
 #@title Repository
 from urllib import request
-from Repository.SeventFtNode import SevenftNode
 
 baseUrl = "https://raw.githubusercontent.com/7ft10/C4ArchitectureExamples/main/"
-
-#@markdown # Imports
 request.urlretrieve(baseUrl + 'Repository/SeventFtNode.py', '_SeventFtNode_.py')
 from _SeventFtNode_ import SevenftNode
 
