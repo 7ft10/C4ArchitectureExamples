@@ -1,0 +1,6 @@
+id: Email
+nodeType: Custom
+name: Email
+description: |-
+  Microsoft Exchange Email
+technology: Exchange

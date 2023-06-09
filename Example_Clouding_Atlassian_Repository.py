@@ -1,24 +1,3 @@
-#@title Repository
-from urllib import request
-from Repository.SeventFtNode import SevenftNode
-
-baseUrl = "https://raw.githubusercontent.com/7ft10/C4ArchitectureExamples/main/"
-
-#@markdown # Imports
-request.urlretrieve(baseUrl + 'SeventFtNode.py', '_SeventFtNode_.py')
-from _SeventFtNode_ import SevenftNode
-
-#@markdown ----------------------------------------------
-#@markdown ## Personas
-
-InternalUser = SevenftNode.LoadFromYaml(baseUrl + 'Repository/Personas/Internal%20User.yaml')
-
-#@markdown ----------------------------------------------
-#@markdown # Systems
-
-Disc = SevenftNode.LoadFromYaml(baseUrl + 'Repository/Systems/Disc.yaml')
-Bamboo = SevenftNode.LoadFromYaml(baseUrl + 'Repository/Systems/Bamboo.yaml')
-
 #@markdown + Confluence (Server) (Confluence)
 @SevenftNode.metadata({
     "name" : "Confluence (Server)",
@@ -209,33 +188,3 @@ class ConfluenceCloud(SevenftNode):
 class JiraCloud(SevenftNode):
   def __init__(self):
     SevenftNode.__init__(self, "System")
-
-#@markdown + NewRelic (NewRelic)
-@SevenftNode.metadata({
-    "label" : "NewRelic",
-    "icon_path" : SevenftNode.GetIcon("NewRelic.png", "https://icons/NewRelic.png")
-})
-class NewRelic(SevenftNode):
-  def __init__(self):
-    SevenftNode.__init__(self, "Custom")
-
-#@markdown ----------------------------------------------
-#@markdown ## Personas
-
-#@markdown + Remote Users (RemoteUsers)
-@SevenftNode.metadata({
-    "name" : "Remote Users",
-    "description" : "Remote Users."
-})
-class RemoteUser(SevenftNode):
-  def __init__(self):
-    SevenftNode.__init__(self, "Person")
-
-#@markdown + External Users (ExternalUsers)
-@SevenftNode.metadata({
-    "name" : "External Users",
-    "description" : "External Users."
-})
-class ExternalUser(SevenftNode):
-  def __init__(self):
-    SevenftNode.__init__(self, "Person")
