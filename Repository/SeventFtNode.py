@@ -25,9 +25,9 @@ class SevenftNode():
   def GetIcon(name: str, url: str):
     try:
       request.urlretrieve(url, name)
+      return name
     except:
-      return SevenftNode.default_icon
-    return name
+      return '_default_icon.png'
 
   @staticmethod
   def FormatLabel(name: str, key: str, description: str):
@@ -82,7 +82,7 @@ class SevenftNode():
           md.setdefault('external', False)
           self.instance = Person( md.pop('name'), md.pop('description'), md.pop('external'), **md )
         case "Custom":
-          md.setdefault('icon_path', SevenftNode.default_icon)
+          md.setdefault('icon_path', self.default_icon)
           name = md.pop('name')
           if "label" in md:
             name = md.pop('label')
