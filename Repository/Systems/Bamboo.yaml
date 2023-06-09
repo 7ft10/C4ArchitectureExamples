@@ -4,8 +4,7 @@ name: Bamboo (Server)
 description: |-
   Bamboo
 technology: Linux
-icon: https://newrelic.com/themes/custom/erno/assets/mediakit/new_relic_logo_vertical.png
-one: two
+icon: https://w7.pngwing.com/pngs/126/46/png-transparent-bamboo-atlassian-continuous-integration-jira-confluence-vision-blue-text-trademark.png
 label: |-
   Bamboo (Server)
   Container Linux <br/>
@@ -17,4 +16,4 @@ Storage: 124.5GB
 Type: V
 OS: Linux
 Network Zone:
-Confluence Application Version: 8.13.2
+Application Version: 8.13.2

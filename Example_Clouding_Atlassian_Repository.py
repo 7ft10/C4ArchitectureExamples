@@ -17,29 +17,7 @@ InternalUser = SevenftNode.LoadFromYaml(baseUrl + 'Repository/Personas/Internal%
 #@markdown # Systems
 
 Disc = SevenftNode.LoadFromYaml(baseUrl + 'Repository/Systems/Disc.yaml')
-
-#@markdown ----------------------------------------------
-#@markdown ----------------------------------------------
-#@markdown ----------------------------------------------
-#@markdown ----------------------------------------------
-#@markdown # Our Systems
-#@markdown + Bamboo (Server) (Bamboo)
-@SevenftNode.metadata({
-    "name" : "Bamboo (Server)",
-    "technology" : "Linux",
-    "description" : "Bamboo.",
-    "label": SevenftNode.FormatLabel("Bamboo (Server)", "Container", "Linux <br/> bamboo.internal.server.com.au <br/> 192.168.61.150"),
-	"CPU": "",
-	"RAM": "",
-	"Storage": "124.5GB",
-	"Type": "V",
-	"OS": "Linux",
-	"Network Zone": "",
-	"Confluence Application Version": "8.13.2"
-})
-class Bamboo(SevenftNode):
-  def __init__(self):
-    SevenftNode.__init__(self, "Container")
+Bamboo = SevenftNode.LoadFromYaml(baseUrl + 'Repository/Systems/Bamboo.yaml')
 
 #@markdown + Confluence (Server) (Confluence)
 @SevenftNode.metadata({

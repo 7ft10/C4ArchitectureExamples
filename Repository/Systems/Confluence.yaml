@@ -1,0 +1,19 @@
+id: Confluence
+nodeType: Container
+name: Confluence (Server)
+description: |-
+  Confluence
+technology: Linux
+icon: https://w7.pngwing.com/pngs/282/343/png-transparent-confluence-atlassian-logo-jira-sharepoint-confluence-health-mares-building-text-logo-area.png
+label: |-
+  Bamboo (Server)
+  Container Linux <br/>
+  confluence.internal.server.com.au <br/>
+  192.168.110.100
+CPU:
+RAM:
+Storage: 124.5GB
+Type: V
+OS: Linux
+Network Zone:
+Application Version: 8.13.2
