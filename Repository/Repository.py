@@ -21,7 +21,7 @@ class cSystems():
     self.API:SevenftNode = SevenftNode.LoadFromYaml(baseUrl + 'Repository/Systems/API.yaml')
     self.CustomA:SevenftNode = SevenftNode.LoadFromYaml(baseUrl + 'Repository/Systems/CustomA.yaml')
     self.Email:SevenftNode = SevenftNode.LoadFromYaml(baseUrl + 'Repository/Systems/Email.yaml')
-    self.MainFrame:SevenftNode = SevenftNode.LoadFromYaml(baseUrl + 'Repository/Systems/MainFrame.yaml')
+    self.MainFrame:SevenftNode = SevenftNode.LoadFromYaml(baseUrl + 'Repository/Systems/Mainframe.yaml')
     self.MobileApp:SevenftNode = SevenftNode.LoadFromYaml(baseUrl + 'Repository/Systems/MobileApp.yaml')
     self.OracleDB:SevenftNode = SevenftNode.LoadFromYaml(baseUrl + 'Repository/Systems/OracleDB.yaml')
     self.SPA:SevenftNode = SevenftNode.LoadFromYaml(baseUrl + 'Repository/Systems/SPA.yaml')
