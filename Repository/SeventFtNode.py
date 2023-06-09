@@ -42,13 +42,11 @@ class SevenftNode():
     a = parse.urlparse(url)
     path = "_" + os.path.basename(a.path) ## Temp file
     request.urlretrieve(url, path)
-
     with open(path, "r") as stream:
       try:
         archetype = yaml.safe_load(stream)
       except yaml.YAMLError as exc:
         display(exc)
-
     id = str(archetype.get('id'))
     globals()[id] = type(id, (SevenftNode, ), {
       "__init__": lambda self : SevenftNode.__init__(self, self.node_type),
@@ -61,7 +59,6 @@ class SevenftNode():
     if (self.metadata != None) and (isinstance(self.metadata, type({}))):
       display(Markdown('---'))
       display(Markdown('## ' + self.__class__.__name__))
-
       if len(self.metadata.items()) > 0:
         table = """| Key         | Value       |
                    | ----------- | ----------- |"""
@@ -73,24 +70,24 @@ class SevenftNode():
     md: dict = self.metadata.copy()
     if (md.get("icon") != None):
       md["icon_path"] = SevenftNode.GetIcon("_" + md.get('id') + ".png", md.get("icon"))
-      match self.nodeType:
-        case "Container":
-          md.setdefault('technology', "Technology missing")
-          self.instance = Container( md.pop('name'), md.pop('technology'), md.pop('description'), **md )
-        case "Person":
-          md.setdefault('external', False)
-          self.instance = Person( md.pop('name'), md.pop('description'), md.pop('external'), **md )
-        case "Custom":
-          md.setdefault('icon_path', self.default_icon)
-          name = md.pop('name')
-          if "label" in md:
-            name = md.pop('label')
-          self.instance = Custom(name, md.pop('icon_path'), **md)
-        case "Database":
-          md.setdefault('technology', "Technology missing")
-          self.instance = Database( md.pop('name'), md.pop('technology'), md.pop('description'), **md )
-        #case "System":
-        case _:
-          md.setdefault('external', False)
-          self.instance = System( md.pop('name'), md.pop('description'), md.pop('external'), **md )
+    match self.nodeType:
+      case "Container":
+        md.setdefault('technology', "Technology missing")
+        self.instance = Container( md.pop('name'), md.pop('technology'), md.pop('description'), **md )
+      case "Person":
+        md.setdefault('external', False)
+        self.instance = Person( md.pop('name'), md.pop('description'), md.pop('external'), **md )
+      case "Custom":
+        md.setdefault('icon_path', self.default_icon)
+        name = md.pop('name')
+        if "label" in md:
+          name = md.pop('label')
+        self.instance = Custom(name, md.pop('icon_path'), **md)
+      case "Database":
+        md.setdefault('technology', "Technology missing")
+        self.instance = Database( md.pop('name'), md.pop('technology'), md.pop('description'), **md )
+      #case "System":
+      case _:
+        md.setdefault('external', False)
+        self.instance = System( md.pop('name'), md.pop('description'), md.pop('external'), **md )
     return self.instance
