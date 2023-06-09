@@ -3,9 +3,10 @@ from diagrams.c4 import Person, Container, Database, System
 from diagrams.custom import Custom
 from urllib.request import urlretrieve
 from IPython.display import display, Markdown
+import yaml
 
 class SevenftNode():
-  def __init__(self, nodeType):
+  def __init__(self, nodeType: str):
     self.nodeType = nodeType
     self.instance = None
 
@@ -19,7 +20,7 @@ class SevenftNode():
     return _metadata
 
   @staticmethod
-  def GetIcon(name, url):
+  def GetIcon(name: str, url: str):
     try:
         urlretrieve(url, name)
     except:
@@ -30,11 +31,32 @@ class SevenftNode():
     return name
 
   @staticmethod
-  def FormatLabel(name, key, description):
+  def FormatLabel(name: str, key: str, description: str):
     title = f'<font point-size="12"><b>{name}</b></font><br/>'
     subtitle = f'<font point-size="9">[{key}]<br/></font>' if key else ""
     text = f'<br/><font point-size="10">{description}</font>' if description else ""
     return f"<{title}{subtitle}{text}>"
+
+  @staticmethod
+  def LoadFromYaml(yamlFileLoc: str):
+    archetype = None
+    with open(yamlFileLoc, "r") as stream:
+        try:
+            archetype = yaml.safe_load(stream)
+        except yaml.YAMLError as exc:
+            display(exc)
+
+    # constructor
+    def constructor(self):
+        SevenftNode.__init__(self, self.node_type)
+
+    id = str(archetype.pop('id'))
+    globals()[id] = type(id, (SevenftNode, ), {
+        "__init__": constructor,
+        "node_type": archetype.pop("nodeType"),
+        "metadata": archetype
+    })
+    return globals()[id]
 
   def Print(self):
     if (self.metadata != None) and (isinstance(self.metadata, type({}))):
@@ -46,6 +68,8 @@ class SevenftNode():
                    | ----------- | ----------- |"""
         for k, v in self.metadata.items():
           table = table + "\n| " + k + " | " + (v if isinstance(v, str) else str(v)) + " |"
+          table = table + """
+                            """
         display(Markdown(table))
 
   def Get(self):

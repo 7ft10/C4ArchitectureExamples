@@ -244,29 +244,29 @@ class NewRelic(SevenftNode):
 #@markdown ----------------------------------------------
 #@markdown ## Personas
 
-#@markdown + A&G Internal Users (AGInternalUsers)
+#@markdown + Internal Users (InternalUser)
 @SevenftNode.metadata({
-    "name" : "A&G Internal Users",
-    "description" : "A&G Internal Users."
+    "name" : "Internal Users",
+    "description" : "Internal Users."
 })
-class AGInternalUsers(SevenftNode):
+class InternalUser(SevenftNode):
   def __init__(self):
     SevenftNode.__init__(self, "Person")
 
-#@markdown + A&G Remote Users (AGRemoteUsers)
+#@markdown + Remote Users (AGRemoteUsers)
 @SevenftNode.metadata({
-    "name" : "A&G Remote Users",
-    "description" : "A&G Remote Users."
+    "name" : "Remote Users",
+    "description" : "Remote Users."
 })
-class AGRemoteUsers(SevenftNode):
+class RemoteUser(SevenftNode):
   def __init__(self):
     SevenftNode.__init__(self, "Person")
 
-#@markdown + A&G External Users (AGExternalUsers)
+#@markdown + External Users (AGExternalUsers)
 @SevenftNode.metadata({
-    "name" : "A&G External Users",
-    "description" : "A&G External Users."
+    "name" : "External Users",
+    "description" : "External Users."
 })
-class AGExternalUsers(SevenftNode):
+class ExternalUser(SevenftNode):
   def __init__(self):
     SevenftNode.__init__(self, "Person")
