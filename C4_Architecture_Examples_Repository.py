@@ -1,6 +1,6 @@
 #@title Repository
 from urllib import request
-from SeventFtNode import SevenftNode
+from Repository.SeventFtNode import SevenftNode
 
 #@markdown # Imports'
 
