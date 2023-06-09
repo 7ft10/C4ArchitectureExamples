@@ -71,9 +71,8 @@ class SevenftNode():
 
   def Get(self):
     md: dict = self.metadata.copy()
-    if (self.instance == None):
-      if (md.get("icon") != None):
-        md["icon_path"] = SevenftNode.GetIcon("_" + md.get('id') + ".png", md.get("icon"))
+    if (md.get("icon") != None):
+      md["icon_path"] = SevenftNode.GetIcon("_" + md.get('id') + ".png", md.get("icon"))
       match self.nodeType:
         case "Container":
           md.setdefault('technology', "Technology missing")
@@ -86,12 +85,6 @@ class SevenftNode():
           name = md.pop('name')
           if "label" in md:
             name = md.pop('label')
-            if "name" in md:
-              md.pop('name')
-            else:
-              pass
-          else:
-            pass
           self.instance = Custom(name, md.pop('icon_path'), **md)
         case "Database":
           md.setdefault('technology', "Technology missing")
