@@ -73,8 +73,6 @@ class SevenftNode():
                    | ----------- | ----------- |"""
         for k, v in self.metadata.items():
           table = table + "\n| " + k + " | " + (v if isinstance(v, str) else str(v)) + " |"
-          table = table + """
-                            """
         display(Markdown(table))
 
   def Get(self):
