@@ -1,15 +1,6 @@
 {
 	"cSpell.words": [
-		"bigbank",
 		"fontsize",
-		"mobileapp",
-		"outformat",
-		"regx",
-		"startswith"
-	],
-	"files.exclude": {
-		"**/__pycache__": true,
-		"**/**.png": true,
-		"**/**.jpg": true
-	}
+		"outformat"
+	]
 }
