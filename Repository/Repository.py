@@ -10,10 +10,10 @@ class cPersonas(SevenftRepository):
   def __init__(self):
     self.BankingCustomer:SevenftNode = SevenftNode.LoadFromYaml(baseUrl + 'Repository/Personas/Banking%20Customer.yaml')
 
-globals()['Personas'] = cPersonas(SevenftRepository)
+globals()['Personas'] = cPersonas()
 
 #@markdown # Internal Systems
-class cSystems():
+class cSystems(SevenftRepository):
   def __init__(self):
     self.API:SevenftNode = SevenftNode.LoadFromYaml(baseUrl + 'Repository/Systems/API.yaml')
     self.CustomA:SevenftNode = SevenftNode.LoadFromYaml(baseUrl + 'Repository/Systems/CustomA.yaml')
