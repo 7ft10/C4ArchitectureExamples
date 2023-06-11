@@ -9,8 +9,11 @@ from IPython.display import display, Markdown
 class SevenftRepository():
   def Print(self):
     for member in dir(self):
-      if type(member) is SevenftNode:
-        member.Print()
+      try:
+        typ = locals().get(member)
+        typ.Print()
+      except:
+        pass
 
 class SevenftNode():
   def __init__(self, nodeType: str):
