@@ -2,15 +2,15 @@
 from urllib import request
 
 baseUrl = "https://raw.githubusercontent.com/7ft10/C4ArchitectureExamples/main/"
-request.urlretrieve(baseUrl + 'Repository/SeventFtNode.py', '_SeventFtNode_.py')
-from _SeventFtNode_ import SevenftNode
+[name, response] = request.urlretrieve(baseUrl + 'Repository/SeventFtNode.py', '_SeventFtNode_.py')
+from _SeventFtNode_ import SevenftRepository, SevenftNode
 
 #@markdown ## Personas
-class cPersonas():
+class cPersonas(SevenftRepository):
   def __init__(self):
     self.BankingCustomer:SevenftNode = SevenftNode.LoadFromYaml(baseUrl + 'Repository/Personas/Banking%20Customer.yaml')
 
-globals()['Personas'] = cPersonas()
+globals()['Personas'] = cPersonas(SevenftRepository)
 
 #@markdown # Internal Systems
 class cSystems():

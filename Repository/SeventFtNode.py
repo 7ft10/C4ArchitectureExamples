@@ -6,6 +6,12 @@ from diagrams.custom import Custom
 from urllib import request, parse
 from IPython.display import display, Markdown
 
+class SevenftRepository():
+  def Print(self):
+    for member in dir(self):
+      if type(member) is SevenftNode:
+        member.Print()
+
 class SevenftNode():
   def __init__(self, nodeType: str):
     self.nodeType = nodeType

@@ -2,11 +2,11 @@
 from urllib import request
 
 baseUrl = "https://raw.githubusercontent.com/7ft10/C4ArchitectureExamples/main/"
-request.urlretrieve(baseUrl + 'Repository/SeventFtNode.py', '_SeventFtNode_.py')
-from _SeventFtNode_ import SevenftNode
+[name, response] = request.urlretrieve(baseUrl + 'Repository/SeventFtNode.py', '_SeventFtNode_.py')
+from _SeventFtNode_ import SevenftRepository, SevenftNode
 
 #@markdown ## Personas
-class cPersonas():
+class cPersonas(SevenftRepository):
   def __init__(self):
     self.InternalUser:SevenftNode = SevenftNode.LoadFromYaml(baseUrl + 'Repository/Personas/Internal%20User.yaml')
     self.ExternalUser:SevenftNode = SevenftNode.LoadFromYaml(baseUrl + 'Repository/Personas/External%20User.yaml')
@@ -15,7 +15,7 @@ class cPersonas():
 globals()['Personas'] = cPersonas()
 
 #@markdown # Internal Systems
-class cInternalSystems():
+class cInternalSystems(SevenftRepository):
   def __init__(self):
     self.ActiveDirectory:SevenftNode = SevenftNode.LoadFromYaml(baseUrl + 'Repository/Internal%20Systems/ActiveDirectory.yaml')
     self.Bamboo:SevenftNode = SevenftNode.LoadFromYaml(baseUrl + 'Repository/Internal%20Systems/Bamboo.yaml')
@@ -37,7 +37,7 @@ class cInternalSystems():
 globals()['InternalSystems'] = cInternalSystems()
 
 #@markdown # External Systems
-class cExternalSystems():
+class cExternalSystems(SevenftRepository):
   def __init__(self):
     self.ConfluenceCloud:SevenftNode = SevenftNode.LoadFromYaml(baseUrl + 'Repository/External%20Systems/ConfluenceCloud.yaml')
     self.JiraCloud:SevenftNode = SevenftNode.LoadFromYaml(baseUrl + 'Repository/External%20Systems/JiraCloud.yaml')
