@@ -10,8 +10,9 @@ class SevenftRepository():
   def Print(self):
     for member in dir(self):
       try:
-        typ = locals().get(member)
-        typ.Print()
+        typ = getattr(self, member)
+        if isinstance(typ, SevenftNode):
+          typ.Print()
       except:
         pass
 
