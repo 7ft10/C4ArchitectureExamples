@@ -6,15 +6,15 @@ baseUrl = "https://raw.githubusercontent.com/7ft10/C4ArchitectureExamples/main/"
 from _SeventFtNode import SevenftRepository, SevenftNode
 
 #@markdown ## Personas
-class cPersonas(SevenftRepository):
+class _Personas(SevenftRepository):
   def __init__(self):
     self.InternalUser:SevenftNode = SevenftNode.LoadFromYaml(baseUrl + 'Repository/Personas/Internal%20User.yaml')
     self.ExternalUser:SevenftNode = SevenftNode.LoadFromYaml(baseUrl + 'Repository/Personas/External%20User.yaml')
     self.RemoteUser:SevenftNode = SevenftNode.LoadFromYaml(baseUrl + 'Repository/Personas/Remote%20User.yaml')
-globals()['Personas'] = cPersonas()
+globals()['Personas'] = _Personas()
 
 #@markdown # Internal Systems
-class cInternalSystems(SevenftRepository):
+class _InternalSystems(SevenftRepository):
   def __init__(self):
     self.ActiveDirectory:SevenftNode = SevenftNode.LoadFromYaml(baseUrl + 'Repository/Internal%20Systems/ActiveDirectory.yaml')
     self.Bamboo:SevenftNode = SevenftNode.LoadFromYaml(baseUrl + 'Repository/Internal%20Systems/Bamboo.yaml')
@@ -32,12 +32,12 @@ class cInternalSystems(SevenftRepository):
     self.Okta:SevenftNode = SevenftNode.LoadFromYaml(baseUrl + 'Repository/Internal%20Systems/Okta.yaml')
     self.PowerBi:SevenftNode = SevenftNode.LoadFromYaml(baseUrl + 'Repository/Internal%20Systems/PowerBi.yaml')
     self.ServiceNow:SevenftNode = SevenftNode.LoadFromYaml(baseUrl + 'Repository/Internal%20Systems/ServiceNow.yaml')
-globals()['InternalSystems'] = cInternalSystems()
+globals()['InternalSystems'] = _InternalSystems()
 
 #@markdown # External Systems
-class cExternalSystems(SevenftRepository):
+class _ExternalSystems(SevenftRepository):
   def __init__(self):
     self.ConfluenceCloud:SevenftNode = SevenftNode.LoadFromYaml(baseUrl + 'Repository/External%20Systems/ConfluenceCloud.yaml')
     self.JiraCloud:SevenftNode = SevenftNode.LoadFromYaml(baseUrl + 'Repository/External%20Systems/JiraCloud.yaml')
     self.NewRelic:SevenftNode = SevenftNode.LoadFromYaml(baseUrl + 'Repository/External%20Systems/New%20Relic.yaml')
-globals()['ExternalSystems'] = cExternalSystems()
+globals()['ExternalSystems'] = _ExternalSystems()

@@ -6,13 +6,13 @@ baseUrl = "https://raw.githubusercontent.com/7ft10/C4ArchitectureExamples/main/"
 from _SeventFtNode import SevenftRepository, SevenftNode
 
 #@markdown ## Personas
-class cPersonas(SevenftRepository):
+class _Personas(SevenftRepository):
   def __init__(self):
     self.BankingCustomer:SevenftNode = SevenftNode.LoadFromYaml(baseUrl + 'Repository/Personas/Banking%20Customer.yaml')
-globals()['Personas'] = cPersonas()
+globals()['Personas'] = _Personas()
 
 #@markdown # Internal Systems
-class cSystems(SevenftRepository):
+class _Systems(SevenftRepository):
   def __init__(self):
     self.API:SevenftNode = SevenftNode.LoadFromYaml(baseUrl + 'Repository/Systems/API.yaml')
     self.CustomA:SevenftNode = SevenftNode.LoadFromYaml(baseUrl + 'Repository/Systems/CustomA.yaml')
@@ -22,4 +22,4 @@ class cSystems(SevenftRepository):
     self.OracleDB:SevenftNode = SevenftNode.LoadFromYaml(baseUrl + 'Repository/Systems/OracleDB.yaml')
     self.SPA:SevenftNode = SevenftNode.LoadFromYaml(baseUrl + 'Repository/Systems/SPA.yaml')
     self.WebApp:SevenftNode = SevenftNode.LoadFromYaml(baseUrl + 'Repository/Systems/WebApp.yaml')
-globals()['Systems'] = cSystems()
+globals()['Systems'] = _Systems()
