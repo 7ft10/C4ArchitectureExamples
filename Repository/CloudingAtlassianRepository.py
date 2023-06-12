@@ -2,8 +2,8 @@
 from urllib import request
 
 baseUrl = "https://raw.githubusercontent.com/7ft10/C4ArchitectureExamples/main/"
-[name, response] = request.urlretrieve(baseUrl + 'Repository/SeventFtNode.py', '_SeventFtNode_.py')
-from _SeventFtNode_ import SevenftRepository, SevenftNode
+[name, response] = request.urlretrieve(baseUrl + 'Repository/SeventFtNode.py', '_SeventFtNode.py')
+from _SeventFtNode import SevenftRepository, SevenftNode
 
 #@markdown ## Personas
 class cPersonas(SevenftRepository):
@@ -11,7 +11,6 @@ class cPersonas(SevenftRepository):
     self.InternalUser:SevenftNode = SevenftNode.LoadFromYaml(baseUrl + 'Repository/Personas/Internal%20User.yaml')
     self.ExternalUser:SevenftNode = SevenftNode.LoadFromYaml(baseUrl + 'Repository/Personas/External%20User.yaml')
     self.RemoteUser:SevenftNode = SevenftNode.LoadFromYaml(baseUrl + 'Repository/Personas/Remote%20User.yaml')
-
 globals()['Personas'] = cPersonas()
 
 #@markdown # Internal Systems
@@ -33,7 +32,6 @@ class cInternalSystems(SevenftRepository):
     self.Okta:SevenftNode = SevenftNode.LoadFromYaml(baseUrl + 'Repository/Internal%20Systems/Okta.yaml')
     self.PowerBi:SevenftNode = SevenftNode.LoadFromYaml(baseUrl + 'Repository/Internal%20Systems/PowerBi.yaml')
     self.ServiceNow:SevenftNode = SevenftNode.LoadFromYaml(baseUrl + 'Repository/Internal%20Systems/ServiceNow.yaml')
-
 globals()['InternalSystems'] = cInternalSystems()
 
 #@markdown # External Systems
@@ -42,5 +40,4 @@ class cExternalSystems(SevenftRepository):
     self.ConfluenceCloud:SevenftNode = SevenftNode.LoadFromYaml(baseUrl + 'Repository/External%20Systems/ConfluenceCloud.yaml')
     self.JiraCloud:SevenftNode = SevenftNode.LoadFromYaml(baseUrl + 'Repository/External%20Systems/JiraCloud.yaml')
     self.NewRelic:SevenftNode = SevenftNode.LoadFromYaml(baseUrl + 'Repository/External%20Systems/New%20Relic.yaml')
-
 globals()['ExternalSystems'] = cExternalSystems()

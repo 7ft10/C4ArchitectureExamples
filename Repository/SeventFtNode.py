@@ -1,26 +1,23 @@
 #@title Repository
 import os
 import yaml
-from diagrams import Node
 from diagrams.c4 import Person, Container, Database, System
 from diagrams.custom import Custom
 from urllib import request, parse
 from IPython.display import display, Markdown
 
+#@markdown # Seven Ft Repository
 class SevenftRepository():
   def Print(self):
     for member in dir(self):
-      try:
-        typ = getattr(self, member)
-        if isinstance(typ, SevenftNode):
-          typ.Print()
-      except:
-        pass
+      typ = getattr(self, member)
+      if isinstance(typ, SevenftNode):
+        typ.Print()
 
+#@markdown # Seven Ft Node
 class SevenftNode():
   def __init__(self, nodeType: str):
     self.nodeType = nodeType
-    self.instance:Node = None
     self.default_icon = SevenftNode.GetIcon('_default_icon.png', 'https://cdn-icons-png.flaticon.com/512/10448/10448063.png')
 
   @staticmethod
@@ -49,19 +46,14 @@ class SevenftNode():
 
   @staticmethod
   def LoadFromYaml(url: str):
-    archetype = None
-    a = parse.urlparse(url)
-    path = "_" + os.path.basename(a.path) ## Temp file
+    path = "_" + os.path.basename(parse.urlparse(url).path) ## Temp file
     request.urlretrieve(url, path)
     with open(path, "r") as stream:
-      try:
-        archetype = yaml.safe_load(stream)
-      except yaml.YAMLError as exc:
-        display(exc)
+      archetype = yaml.safe_load(stream)
     id = str(archetype.get('id'))
     globals()[id] = type(id, (SevenftNode, ), {
-      "__init__": lambda self : SevenftNode.__init__(self, self.node_type),
-      "node_type": archetype.pop("nodeType"),
+      "__init__": lambda self : SevenftNode.__init__(self, self.nodeType),
+      "nodeType": archetype.pop("nodeType"),
       "metadata": archetype
     })
     return globals()[id]()
@@ -77,31 +69,29 @@ class SevenftNode():
           table = table + "\n| " + k + " | " + (v if isinstance(v, str) else str(v)) + " |"
         display(Markdown(table))
 
-  def Get(self, singleton = True):
-    newInstance:Node = None
+  def Get(self):
     md: dict = self.metadata.copy()
-    if (md.get("icon") != None):
+    if md.get("icon") != None:
       md["icon_path"] = SevenftNode.GetIcon("_" + md.get('id') + ".png", md.get("icon"))
     match self.nodeType:
       case "Container":
         md.setdefault('technology', "Technology missing")
-        newInstance = Container( md.pop('name'), md.pop('technology'), md.pop('description'), **md )
+        return Container( md.pop('name'), md.pop('technology'), md.pop('description'), **md )
       case "Person":
         md.setdefault('external', False)
-        newInstance = Person( md.pop('name'), md.pop('description'), md.pop('external'), **md )
+        return Person( md.pop('name'), md.pop('description'), md.pop('external'), **md )
       case "Custom":
         md.setdefault('icon_path', self.default_icon)
         name = md.pop('name')
         if "label" in md:
           name = md.pop('label')
-        newInstance = Custom(name, md.pop('icon_path'), **md)
+        return Custom(name, md.pop('icon_path'), **md)
       case "Database":
         md.setdefault('technology', "Technology missing")
-        newInstance = Database( md.pop('name'), md.pop('technology'), md.pop('description'), **md )
-      #case "System":
+        return Database( md.pop('name'), md.pop('technology'), md.pop('description'), **md )
+      case "System":
+        md.setdefault('external', False)
+        return System( md.pop('name'), md.pop('description'), md.pop('external'), **md )
       case _:
         md.setdefault('external', False)
-        newInstance = System( md.pop('name'), md.pop('description'), md.pop('external'), **md )
-    if (singleton and self.instance == None):
-      self.instance = newInstance
-    return self.instance if singleton else newInstance
+        return System( md.pop('name'), md.pop('description'), md.pop('external'), **md )
