@@ -76,28 +76,31 @@ class SevenftNode():
           table = table + "\n| " + k + " | " + (v if isinstance(v, str) else str(v)) + " |"
         display(Markdown(table))
 
-  def Get(self):
+  def Get(self, singleton = True):
+    newInstance = None
     md: dict = self.metadata.copy()
     if (md.get("icon") != None):
       md["icon_path"] = SevenftNode.GetIcon("_" + md.get('id') + ".png", md.get("icon"))
     match self.nodeType:
       case "Container":
         md.setdefault('technology', "Technology missing")
-        self.instance = Container( md.pop('name'), md.pop('technology'), md.pop('description'), **md )
+        newInstance = Container( md.pop('name'), md.pop('technology'), md.pop('description'), **md )
       case "Person":
         md.setdefault('external', False)
-        self.instance = Person( md.pop('name'), md.pop('description'), md.pop('external'), **md )
+        newInstance = Person( md.pop('name'), md.pop('description'), md.pop('external'), **md )
       case "Custom":
         md.setdefault('icon_path', self.default_icon)
         name = md.pop('name')
         if "label" in md:
           name = md.pop('label')
-        self.instance = Custom(name, md.pop('icon_path'), **md)
+        newInstance = Custom(name, md.pop('icon_path'), **md)
       case "Database":
         md.setdefault('technology', "Technology missing")
-        self.instance = Database( md.pop('name'), md.pop('technology'), md.pop('description'), **md )
+        newInstance = Database( md.pop('name'), md.pop('technology'), md.pop('description'), **md )
       #case "System":
       case _:
         md.setdefault('external', False)
-        self.instance = System( md.pop('name'), md.pop('description'), md.pop('external'), **md )
-    return self.instance
+        newInstance = System( md.pop('name'), md.pop('description'), md.pop('external'), **md )
+    if (singleton and self.isinstance == None):
+      self.instance = newInstance
+    return self.instance if singleton else newInstance
