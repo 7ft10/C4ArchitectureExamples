@@ -52,8 +52,7 @@ class SevenftNode():
       archetype = yaml.safe_load(stream)
     id = str(archetype.get('id'))
     globals()[id] = type(id, (SevenftNode, ), {
-      "__init__": lambda self : SevenftNode.__init__(self, self.nodeType),
-      "nodeType": archetype.pop("nodeType"),
+      "__init__": lambda self : super.__init__(self, archetype.pop("nodeType")),
       "metadata": archetype
     })
     return globals()[id]()
