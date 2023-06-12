@@ -1,6 +1,7 @@
 #@title Repository
 import os
 import yaml
+from diagrams import Node
 from diagrams.c4 import Person, Container, Database, System
 from diagrams.custom import Custom
 from urllib import request, parse
@@ -19,7 +20,7 @@ class SevenftRepository():
 class SevenftNode():
   def __init__(self, nodeType: str):
     self.nodeType = nodeType
-    self.instance = None
+    self.instance:Node = None
     self.default_icon = SevenftNode.GetIcon('_default_icon.png', 'https://cdn-icons-png.flaticon.com/512/10448/10448063.png')
 
   @staticmethod
@@ -77,7 +78,7 @@ class SevenftNode():
         display(Markdown(table))
 
   def Get(self, singleton = True):
-    newInstance = None
+    newInstance:Node = None
     md: dict = self.metadata.copy()
     if (md.get("icon") != None):
       md["icon_path"] = SevenftNode.GetIcon("_" + md.get('id') + ".png", md.get("icon"))
