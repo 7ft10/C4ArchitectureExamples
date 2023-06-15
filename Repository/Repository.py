@@ -23,9 +23,8 @@ globals()['Systems'] = _Systems()
 class _Applications(SevenftRepository):
   def __init__(self):
     self.API:SevenftNode = SevenftNode.LoadFromYaml(baseUrl + 'Repository/Applications/API.yaml')
-    self.CustomA:SevenftNode = SevenftNode.LoadFromYaml(baseUrl + 'Repository/Applications/CustomA.yaml')
     self.MobileApp:SevenftNode = SevenftNode.LoadFromYaml(baseUrl + 'Repository/Applications/MobileApp.yaml')
-    self.OracleDB:SevenftNode = SevenftNode.LoadFromYaml(baseUrl + 'Repository/Applications/OracleDB.yaml')
+    self.Database:SevenftNode = SevenftNode.LoadFromYaml(baseUrl + 'Repository/Applications/Database.yaml')
     self.SPA:SevenftNode = SevenftNode.LoadFromYaml(baseUrl + 'Repository/Applications/SPA.yaml')
     self.WebApp:SevenftNode = SevenftNode.LoadFromYaml(baseUrl + 'Repository/Applications/WebApp.yaml')
 globals()['Applications'] = _Applications()
