@@ -1,5 +1,9 @@
 id: Mainframe
 nodeType: System
-name: Mainframe
-description: |-
+name: Mainframe Banking System
+decription: |-
+  Store all of the core banking 
+  infotmation about customers, 
+  accounts, transactions, etc. 
+technology: |-
   AS400 IBM Mainframe
