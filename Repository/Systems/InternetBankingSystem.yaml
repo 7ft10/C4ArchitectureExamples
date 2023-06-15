@@ -1,6 +1,6 @@
 id: BankingSystem
 nodeType: System
 name: Internet Banking System
-decription: |-
-  Allows customers to view information about 
+description: |-
+  Allows customers to view information about
   their bank accounts, and make payments.
