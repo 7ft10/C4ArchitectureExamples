@@ -22,10 +22,10 @@ globals()['Systems'] = _Systems()
 #@markdown # Internal Applications
 class _Applications(SevenftRepository):
   def __init__(self):
-    self.API:SevenftNode = SevenftNode.LoadFromYaml(baseUrl + 'Repository/Systems/API.yaml')
-    self.CustomA:SevenftNode = SevenftNode.LoadFromYaml(baseUrl + 'Repository/Systems/CustomA.yaml')
-    self.MobileApp:SevenftNode = SevenftNode.LoadFromYaml(baseUrl + 'Repository/Systems/MobileApp.yaml')
-    self.OracleDB:SevenftNode = SevenftNode.LoadFromYaml(baseUrl + 'Repository/Systems/OracleDB.yaml')
-    self.SPA:SevenftNode = SevenftNode.LoadFromYaml(baseUrl + 'Repository/Systems/SPA.yaml')
-    self.WebApp:SevenftNode = SevenftNode.LoadFromYaml(baseUrl + 'Repository/Systems/WebApp.yaml')
+    self.API:SevenftNode = SevenftNode.LoadFromYaml(baseUrl + 'Repository/Applications/API.yaml')
+    self.CustomA:SevenftNode = SevenftNode.LoadFromYaml(baseUrl + 'Repository/Applications/CustomA.yaml')
+    self.MobileApp:SevenftNode = SevenftNode.LoadFromYaml(baseUrl + 'Repository/Applications/MobileApp.yaml')
+    self.OracleDB:SevenftNode = SevenftNode.LoadFromYaml(baseUrl + 'Repository/Applications/OracleDB.yaml')
+    self.SPA:SevenftNode = SevenftNode.LoadFromYaml(baseUrl + 'Repository/Applications/SPA.yaml')
+    self.WebApp:SevenftNode = SevenftNode.LoadFromYaml(baseUrl + 'Repository/Applications/WebApp.yaml')
 globals()['Applications'] = _Applications()
