@@ -2,5 +2,5 @@ id: Email
 nodeType: Custom
 name: Email
 description: |-
-  Microsoft Exchange Email
+  The internal Microsoft Exchange Email system
 technology: Exchange
