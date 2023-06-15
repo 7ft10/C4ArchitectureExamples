@@ -2,7 +2,7 @@
 from urllib import request
 
 baseUrl = "https://raw.githubusercontent.com/7ft10/C4ArchitectureExamples/main/"
-[name, response] = request.urlretrieve(baseUrl + 'Repository/SeventFtNode.py', '_SeventFtNode.py')
+[name, response] = request.urlretrieve(baseUrl + 'SeventFtNode.py', '_SeventFtNode.py')
 from _SeventFtNode import SevenftRepository, SevenftNode
 
 #@markdown ## Personas
