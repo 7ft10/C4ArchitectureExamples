@@ -82,7 +82,7 @@ class SevenftNode():
         md.setdefault('external', False)
         name = SevenftNode.GetIcon('_persona.png', 'https://raw.githubusercontent.com/7ft10/C4ArchitectureExamples/main/Library/Icons/Persona.png')
         md.update({
-            "image" : _load_icon(self, name),
+            "image" : self._load_icon(name),
         	"type": "External Person" if md.get('external') else "Person",
         	"fillcolor": "00FFFFFF",
         	"style": "rounded,invis",
