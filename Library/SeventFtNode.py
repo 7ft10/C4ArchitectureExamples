@@ -159,7 +159,8 @@ def Code(name, type="module", language="", description="", external=False, **kwa
         "fixedsize": "true" if shape == "circle" else "false",
         "type": "External Component" if external else "Component",
         "fillcolor": "gray60" if external else "dodgerblue4",
-        "shape": shape
+        "shape": shape,
+        "fontcolor": "black" if shape == "circle" else "white",
     }
     component_attributes.update(kwargs)
     return C4Node(**component_attributes)
