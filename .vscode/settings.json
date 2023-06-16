@@ -1,9 +1,12 @@
 {
 	"cSpell.words": [
 		"dodgerblue",
+		"fixedsize",
+		"fontcolor",
 		"fontsize",
 		"httpimport",
 		"invis",
+		"labelloc",
 		"outformat"
 	],
 	"files.exclude": {

@@ -3,8 +3,7 @@ import os
 import yaml
 import html
 import textwrap
-from diagrams import Cluster, Node, Edge
-from diagrams.c4 import Person, Container, Database, System, C4Node
+from diagrams.c4 import Container, Database, System, C4Node
 from diagrams.custom import Custom
 from urllib import request, parse
 from IPython.display import display, Markdown
@@ -147,7 +146,12 @@ def Component(name, technology="", description="", external=False, **kwargs):
     component_attributes.update(kwargs)
     return C4Node(**component_attributes)
 
-def Code(name, language="", description="", external=False, **kwargs):
+def Code(name, type="module", language="", description="", external=False, **kwargs):
+    shape = "note"
+    if type == "abstract":
+      shape = "tab"
+    if type == "interface":
+      shape = "circle"
     component_attributes = {
         "name": name,
         "description": description,
@@ -155,7 +159,7 @@ def Code(name, language="", description="", external=False, **kwargs):
         "fixedsize": "false",
         "type": "External Component" if external else "Component",
         "fillcolor": "gray60" if external else "dodgerblue4",
-        "shape": "note" if external else "tab"
+        "shape": shape
     }
     component_attributes.update(kwargs)
     return C4Node(**component_attributes)
