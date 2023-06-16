@@ -1,6 +1,8 @@
 #@title Repository
 import os
 import yaml
+import html
+import textwrap
 from pathlib import Path
 from diagrams.c4 import Person, Container, Database, System, C4Node
 from diagrams.custom import Custom
@@ -43,8 +45,15 @@ class SevenftNode():
   def FormatLabel(name: str, key: str, description: str):
     title = f'<font point-size="12"><b>{name}</b></font><br/>'
     subtitle = f'<font point-size="9">[{key}]<br/></font>' if key else ""
-    text = f'<br/><font point-size="10">{description}</font>' if description else ""
+    text = f'<br/><font point-size="10">{SevenftNode.FormatDescription(description)}</font>' if description else ""
     return f"<{title}{subtitle}{text}>"
+
+  @staticmethod
+  def FormatDescription(description):
+    wrapper = textwrap.TextWrapper(width=40, max_lines=3)
+    lines = [html.escape(line) for line in wrapper.wrap(description)]
+    lines += [""] * (3 - len(lines))  # fill up with empty lines so it is always three
+    return "<br/>".join(lines)
 
   @staticmethod
   def LoadFromYaml(url: str):
@@ -81,13 +90,12 @@ class SevenftNode():
         return Container( md.pop('name'), md.pop('technology'), md.pop('description'), **md )
       case "Person":
         md.setdefault('icon_path', self.default_persona_icon)
-        key = f"{md.get('type')}: {md.get('technology')}" if md.get('technology') else type
         md.update(**{
           "type": "External Person" if md.get('external') else "Person",
-          ##"fillcolor": "gray60" if md.get('external') else "dodgerblue4",
-          ##"style": "rounded,filled",
+          "fillcolor": "gray60" if md.get('external') else "dodgerblue4",
+          "style": "rounded,filled",
           "labelloc": "c",
-          ##"shape": "rect",
+          #"shape": "rect",
           "width": "2.6",
           "height": "1.6",
           "fixedsize": "true",
@@ -95,8 +103,11 @@ class SevenftNode():
           "fillcolor": "dodgerblue3",
           "fontcolor": "white",
         })
-        name = SevenftNode.FormatLabel(md.pop('name'), key, md.get('description'))
+        key = md.get('technology') if 'technology' in md else md.get('type')
+        name = SevenftNode.FormatLabel(md.pop('name'), key, md.pop('description'))
+        ##name = md.pop('label') if "label" in md else md.pop('name')
         return Custom(name, md.pop('icon_path'), **md )
+        ##return Person(md.pop('name'), **md)
       case "Custom":
         md.setdefault('icon_path', self.default_icon)
         name = md.pop('label') if "label" in md else md.pop('name')

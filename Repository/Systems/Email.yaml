@@ -1,6 +1,7 @@
 id: Email
-nodeType: Custom
+nodeType: System
 name: Email
+external: True
 description: |-
   The internal Microsoft Exchange Email system
 technology: Exchange
