@@ -7,8 +7,8 @@ technology: Linux
 icon: https://w7.pngwing.com/pngs/282/343/png-transparent-confluence-atlassian-logo-jira-sharepoint-confluence-health-mares-building-text-logo-area.png
 label: |-
   Bamboo (Server)
-  Container Linux <br/>
-  confluence.internal.server.com.au <br/>
+  Container Linux
+  confluence.internal.server.com.au
   192.168.110.100
 CPU:
 RAM:

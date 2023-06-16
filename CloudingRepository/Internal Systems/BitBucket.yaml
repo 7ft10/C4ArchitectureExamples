@@ -7,8 +7,8 @@ technology: Linux
 icon: https://w7.pngwing.com/pngs/126/46/png-transparent-bitbucket-atlassian-continuous-integration-jira-confluence-vision-blue-text-trademark.png
 label: |-
   BitBucket (Server)
-  Container Linux <br/>
-  bitbucket.internal.server.com.au <br/>
+  Container Linux
+  bitbucket.internal.server.com.au
   192.168.61.350
 CPU:
 RAM:

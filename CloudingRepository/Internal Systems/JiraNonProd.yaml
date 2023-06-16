@@ -7,8 +7,8 @@ technology: Linux
 icon:
 label: |-
   Bamboo (Server)
-  Container Linux <br/>
-  jira-dev.internal.server.com.au <br/>
+  Container Linux
+  jira-dev.internal.server.com.au
   192.168.110.200
 CPU:
 RAM:
