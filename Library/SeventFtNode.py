@@ -152,6 +152,7 @@ def Code(name, language="", description="", external=False, **kwargs):
         "name": name,
         "description": description,
         "technology": language,
+        "fixedsize": "false",
         "type": "External Component" if external else "Component",
         "fillcolor": "gray60" if external else "dodgerblue4",
         "shape": "note" if external else "tab"
