@@ -20,7 +20,7 @@ class SevenftRepository():
 class SevenftNode():
   def __init__(self, nodeType: str):
     self.nodeType = nodeType
-    self.default_icon = SevenftNode.GetIcon('_default_icon.png', 'https://cdn-icons-png.flaticon.com/512/10448/10448063.png')
+    self.default_icon = SevenftNode.GetIcon('_default_icon.png', 'https://raw.githubusercontent.com/7ft10/C4ArchitectureExamples/main/Library/Icons/Missing.png')
     self.default_persona_icon = SevenftNode.GetIcon('_persona.png', 'https://raw.githubusercontent.com/7ft10/C4ArchitectureExamples/main/Library/Icons/Persona.png')
 
   @staticmethod
