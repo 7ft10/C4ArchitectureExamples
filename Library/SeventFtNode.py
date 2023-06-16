@@ -86,7 +86,6 @@ class SevenftNode():
           "type": "External Person" if md.get('external') else "Person",
           "fillcolor": "gray60" if md.get('external') else "dodgerblue4",
           "style": "rounded,filled",
-          "label": SevenftNode.FormatLabel(md.get('name'), key, md.get('description')),
           "labelloc": "c",
           "shape": "rect",
           "width": "2.6",
@@ -96,7 +95,7 @@ class SevenftNode():
           "fillcolor": "dodgerblue3",
           "fontcolor": "white",
         })
-        name = md.pop('label') if "label" in md else md.pop('name')
+        name = SevenftNode.FormatLabel(md.pop('name'), key, md.get('description'))
         return Custom(name, md.pop('icon_path'), **md )
       case "Custom":
         md.setdefault('icon_path', self.default_icon)
