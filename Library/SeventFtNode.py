@@ -80,14 +80,8 @@ class SevenftNode():
         md.setdefault('technology', "Technology missing")
         return Container( md.pop('name'), md.pop('technology'), md.pop('description'), **md )
       case "Person":
-        md.setdefault('external', False)
         md.setdefault('icon_path', self.default_persona_icon)
         name = md.pop('label') if "label" in md else md.pop('name')
-        md.update({
-            "type": "External Person" if md.get('external') else "Person",
-            "fillcolor": "00FFFFFF",
-            "style": "rounded,invis",
-        })
         return Custom(name, md.pop('icon_path'), **md )
       case "Custom":
         md.setdefault('icon_path', self.default_icon)
