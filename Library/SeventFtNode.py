@@ -80,11 +80,12 @@ class SevenftNode():
         return Container( md.pop('name'), md.pop('technology'), md.pop('description'), **md )
       case "Person":
         md.setdefault('external', False)
-        name = SevenftNode.GetIcon('_persona.png', 'https://cdn-icons-png.flaticon.com/512/10448/10448063.png')
+        name = SevenftNode.GetIcon('_persona.png', 'https://raw.githubusercontent.com/7ft10/C4ArchitectureExamples/main/Library/Icons/Persona.png')
         md.update({
+            "image" : _load_icon(self, name),
         	"type": "External Person" if md.get('external') else "Person",
-        	"fillcolor": "gray60" if md.get('external') else "dodgerblue4",
-        	"style": "rounded,filled",
+        	"fillcolor": "00FFFFFF",
+        	"style": "rounded,invis",
     	})
         return C4Node( **md )
       case "Custom":
@@ -103,6 +104,6 @@ class SevenftNode():
         md.setdefault('external', False)
         return System( md.pop('name'), md.pop('description'), md.pop('external'), **md )
 
-    def _load_icon(self):
+    def _load_icon(self, icon):
         basedir = Path(os.path.abspath(os.path.dirname(__file__)))
-        return os.path.join(basedir.parent, self._icon_dir, self._icon)
+        return os.path.join(basedir.parent, "", icon)
