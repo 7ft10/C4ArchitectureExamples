@@ -3,7 +3,7 @@ import os
 import yaml
 import html
 import textwrap
-from pathlib import Path
+from diagrams import Cluster, Node, Edge
 from diagrams.c4 import Person, Container, Database, System, C4Node
 from diagrams.custom import Custom
 from urllib import request, parse
@@ -142,6 +142,19 @@ def Component(name, technology="", description="", external=False, **kwargs):
         "technology": technology,
         "type": "External Component" if external else "Component",
         "fillcolor": "gray60" if external else "dodgerblue4",
+        "shape": "component"
+    }
+    component_attributes.update(kwargs)
+    return C4Node(**component_attributes)
+
+def Code(name, language="", description="", external=False, **kwargs):
+    component_attributes = {
+        "name": name,
+        "description": description,
+        "technology": language,
+        "type": "External Component" if external else "Component",
+        "fillcolor": "gray60" if external else "dodgerblue4",
+        "shape": "tab"
     }
     component_attributes.update(kwargs)
     return C4Node(**component_attributes)
