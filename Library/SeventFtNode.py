@@ -81,6 +81,21 @@ class SevenftNode():
         return Container( md.pop('name'), md.pop('technology'), md.pop('description'), **md )
       case "Person":
         md.setdefault('icon_path', self.default_persona_icon)
+        key = f"{md.get('type')}: {md.get('technology')}" if md.get('technology') else type
+        md.apply({
+          "type": "External Person" if md.get('external') else "Person",
+          "fillcolor": "gray60" if md.get('external') else "dodgerblue4",
+          "style": "rounded,filled",
+          "label": SevenftNode.FormatLabel(md.get('name'), key, md.get('description')),
+          "labelloc": "c",
+          "shape": "rect",
+          "width": "2.6",
+          "height": "1.6",
+          "fixedsize": "true",
+          "style": "filled",
+          "fillcolor": "dodgerblue3",
+          "fontcolor": "white",
+        })
         name = md.pop('label') if "label" in md else md.pop('name')
         return Custom(name, md.pop('icon_path'), **md )
       case "Custom":
