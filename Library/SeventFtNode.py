@@ -95,29 +95,52 @@ class SevenftNode():
           "fillcolor": "gray60" if md.get('external') else "dodgerblue4",
           "style": "rounded,filled",
           "labelloc": "c",
-          #"shape": "rect",
           "width": "2.6",
           "height": "1.6",
           "fixedsize": "true",
           "style": "filled",
-          "fillcolor": "dodgerblue3",
           "fontcolor": "white",
         })
         key = md.get('technology') if 'technology' in md else md.get('type')
-        name = SevenftNode.FormatLabel(md.pop('name'), key, md.pop('description'))
-        ##name = md.pop('label') if "label" in md else md.pop('name')
+        name = md.pop('label') if "label" in md else SevenftNode.FormatLabel(md.pop('name'), key, md.pop('description'))
         return Custom(name, md.pop('icon_path'), **md )
-        ##return Person(md.pop('name'), **md)
       case "Custom":
         md.setdefault('icon_path', self.default_icon)
-        name = md.pop('label') if "label" in md else md.pop('name')
+        md.update(**{
+          "type": "External Person" if md.get('external') else "Person",
+          "fillcolor": "gray60" if md.get('external') else "dodgerblue4",
+          "style": "rounded,filled",
+          "labelloc": "c",
+          "width": "2.6",
+          "height": "1.6",
+          "fixedsize": "true",
+          "style": "filled",
+          "fontcolor": "white",
+        })
+        key = md.get('technology') if 'technology' in md else md.get('type')
+        name = md.pop('label') if "label" in md else SevenftNode.FormatLabel(md.pop('name'), key, md.pop('description'))
         return Custom(name, md.pop('icon_path'), **md)
       case "Database":
+        md.setdefault('type', "Database")
         md.setdefault('technology', "Technology missing")
+        md.setdefault('shape', "cylinder")
         return Database( md.pop('name'), md.pop('technology'), md.pop('description'), **md )
       case "System":
         md.setdefault('external', False)
         return System( md.pop('name'), md.pop('description'), md.pop('external'), **md )
+      case "Component":
+        md.setdefault('external', False)
+        return Component( md.pop('name'), md.pop('description'), md.pop('external'), **md )
       case _:
         md.setdefault('external', False)
         return System( md.pop('name'), md.pop('description'), md.pop('external'), **md )
+
+def Component(name, description="", external=False, **kwargs):
+    system_attributes = {
+        "name": name,
+        "description": description,
+        "type": "External Component" if external else "Component",
+        "fillcolor": "gray60" if external else "dodgerblue4",
+    }
+    system_attributes.update(kwargs)
+    return C4Node(**system_attributes)
