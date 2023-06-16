@@ -80,15 +80,13 @@ class SevenftNode():
         return Container( md.pop('name'), md.pop('technology'), md.pop('description'), **md )
       case "Person":
         md.setdefault('external', False)
-        name = SevenftNode.GetIcon('_persona.png', 'https://raw.githubusercontent.com/7ft10/C4ArchitectureExamples/main/Library/Icons/Persona.png')
-        basedir = Path(os.path.abspath(os.path.dirname(__file__)))
+        md.setdefault('icon_path', SevenftNode.GetIcon('_persona.png', 'https://raw.githubusercontent.com/7ft10/C4ArchitectureExamples/main/Library/Icons/Persona.png'))
         md.update({
-            "image" : os.path.join(basedir, name),
-        	"type": "External Person" if md.get('external') else "Person",
-        	"fillcolor": "00FFFFFF",
-        	"style": "rounded,invis",
-    	})
-        return C4Node( **md )
+            "type": "External Person" if md.get('external') else "Person",
+            "fillcolor": "00FFFFFF",
+            "style": "rounded,invis",
+        })
+        return Custom( **md )
       case "Custom":
         md.setdefault('icon_path', self.default_icon)
         name = md.pop('name')
