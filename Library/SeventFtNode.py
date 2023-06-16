@@ -91,7 +91,7 @@ class SevenftNode():
         md.setdefault('icon_path', self.default_persona_icon)
         md.update(**{
           "type": "External Person" if md.get('external') else "Person",
-          "fillcolor": "gray60" if md.get('external') else "dodgerblue4",
+          "fillcolor": "#99999950" if md.get('external') else "#104e8b50", ## 50% "gray60" & "dodgerblue4",
           "style": "rounded,filled",
           "labelloc": "c",
           "width": "2.6",
@@ -107,7 +107,7 @@ class SevenftNode():
         md.setdefault('icon_path', self.default_icon)
         md.update(**{
           "type": "External Person" if md.get('external') else "Person",
-          "fillcolor": "gray60" if md.get('external') else "dodgerblue4",
+          "fillcolor": "#99999950" if md.get('external') else "#104e8b50", ## 50% "gray60" & "dodgerblue4",
           "style": "rounded,filled",
           "labelloc": "c",
           "width": "2.6",
