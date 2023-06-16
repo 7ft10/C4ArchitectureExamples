@@ -84,10 +84,10 @@ class SevenftNode():
         key = f"{md.get('type')}: {md.get('technology')}" if md.get('technology') else type
         md.update(**{
           "type": "External Person" if md.get('external') else "Person",
-          "fillcolor": "gray60" if md.get('external') else "dodgerblue4",
-          "style": "rounded,filled",
+          ##"fillcolor": "gray60" if md.get('external') else "dodgerblue4",
+          ##"style": "rounded,filled",
           "labelloc": "c",
-          "shape": "rect",
+          ##"shape": "rect",
           "width": "2.6",
           "height": "1.6",
           "fixedsize": "true",
