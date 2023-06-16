@@ -20,6 +20,7 @@ class SevenftNode():
   def __init__(self, nodeType: str):
     self.nodeType = nodeType
     self.default_icon = SevenftNode.GetIcon('_default_icon.png', 'https://cdn-icons-png.flaticon.com/512/10448/10448063.png')
+    self.default_persona_icon = SevenftNode.GetIcon('_persona.png', 'https://raw.githubusercontent.com/7ft10/C4ArchitectureExamples/main/Library/Icons/Persona.png')
 
   @staticmethod
   def metadata(args = {}):
@@ -80,7 +81,7 @@ class SevenftNode():
         return Container( md.pop('name'), md.pop('technology'), md.pop('description'), **md )
       case "Person":
         md.setdefault('external', False)
-        md.setdefault('icon_path', SevenftNode.GetIcon('_persona.png', 'https://raw.githubusercontent.com/7ft10/C4ArchitectureExamples/main/Library/Icons/Persona.png'))
+        md.setdefault('icon_path', self.default_persona_icon)
         name = md.pop('name')
         if "label" in md:
           name = md.pop('label')
