@@ -156,7 +156,7 @@ def Code(name, type="module", language="", description="", external=False, **kwa
         "name": name,
         "description": description,
         "technology": language,
-        "fixedsize": "false",
+        "fixedsize": "true" if shape == "circle" else "false",
         "type": "External Component" if external else "Component",
         "fillcolor": "gray60" if external else "dodgerblue4",
         "shape": shape
