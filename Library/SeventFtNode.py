@@ -81,8 +81,9 @@ class SevenftNode():
       case "Person":
         md.setdefault('external', False)
         name = SevenftNode.GetIcon('_persona.png', 'https://raw.githubusercontent.com/7ft10/C4ArchitectureExamples/main/Library/Icons/Persona.png')
+        basedir = Path(os.path.abspath(os.path.dirname(__file__)))
         md.update({
-            "image" : self._load_icon(name),
+            "image" : os.path.join(basedir.parent, "", name),
         	"type": "External Person" if md.get('external') else "Person",
         	"fillcolor": "00FFFFFF",
         	"style": "rounded,invis",
@@ -103,7 +104,3 @@ class SevenftNode():
       case _:
         md.setdefault('external', False)
         return System( md.pop('name'), md.pop('description'), md.pop('external'), **md )
-
-    def _load_icon(self, icon):
-        basedir = Path(os.path.abspath(os.path.dirname(__file__)))
-        return os.path.join(basedir.parent, "", icon)
