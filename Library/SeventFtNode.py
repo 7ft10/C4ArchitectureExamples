@@ -1,7 +1,8 @@
 #@title Repository
 import os
 import yaml
-from diagrams.c4 import Person, Container, Database, System
+from pathlib import Path
+from diagrams.c4 import Person, Container, Database, System, C4Node
 from diagrams.custom import Custom
 from urllib import request, parse
 from IPython.display import display, Markdown
@@ -79,7 +80,13 @@ class SevenftNode():
         return Container( md.pop('name'), md.pop('technology'), md.pop('description'), **md )
       case "Person":
         md.setdefault('external', False)
-        return Person( md.pop('name'), md.pop('description'), md.pop('external'), **md )
+        name = SevenftNode.GetIcon('_persona.png', 'https://cdn-icons-png.flaticon.com/512/10448/10448063.png')
+        md.update({
+        	"type": "External Person" if md.get('external') else "Person",
+        	"fillcolor": "gray60" if md.get('external') else "dodgerblue4",
+        	"style": "rounded,filled",
+    	})
+        return C4Node( **md )
       case "Custom":
         md.setdefault('icon_path', self.default_icon)
         name = md.pop('name')
@@ -95,3 +102,7 @@ class SevenftNode():
       case _:
         md.setdefault('external', False)
         return System( md.pop('name'), md.pop('description'), md.pop('external'), **md )
+
+    def _load_icon(self):
+        basedir = Path(os.path.abspath(os.path.dirname(__file__)))
+        return os.path.join(basedir.parent, self._icon_dir, self._icon)
