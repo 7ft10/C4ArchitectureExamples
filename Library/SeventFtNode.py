@@ -81,12 +81,15 @@ class SevenftNode():
       case "Person":
         md.setdefault('external', False)
         md.setdefault('icon_path', SevenftNode.GetIcon('_persona.png', 'https://raw.githubusercontent.com/7ft10/C4ArchitectureExamples/main/Library/Icons/Persona.png'))
+        name = md.pop('name')
+        if "label" in md:
+          name = md.pop('label')
         md.update({
             "type": "External Person" if md.get('external') else "Person",
             "fillcolor": "00FFFFFF",
             "style": "rounded,invis",
         })
-        return Custom( **md )
+        return Custom(name, md.pop('icon_path'), **md )
       case "Custom":
         md.setdefault('icon_path', self.default_icon)
         name = md.pop('name')
