@@ -82,7 +82,7 @@ class SevenftNode():
       case "Person":
         md.setdefault('icon_path', self.default_persona_icon)
         key = f"{md.get('type')}: {md.get('technology')}" if md.get('technology') else type
-        md.apply({
+        md.update(**{
           "type": "External Person" if md.get('external') else "Person",
           "fillcolor": "gray60" if md.get('external') else "dodgerblue4",
           "style": "rounded,filled",
