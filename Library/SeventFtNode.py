@@ -135,12 +135,13 @@ class SevenftNode():
         md.setdefault('external', False)
         return System( md.pop('name'), md.pop('description'), md.pop('external'), **md )
 
-def Component(name, description="", external=False, **kwargs):
-    system_attributes = {
+def Component(name, technology="", description="", external=False, **kwargs):
+    component_attributes = {
         "name": name,
         "description": description,
+        "technology": technology,
         "type": "External Component" if external else "Component",
         "fillcolor": "gray60" if external else "dodgerblue4",
     }
-    system_attributes.update(kwargs)
-    return C4Node(**system_attributes)
+    component_attributes.update(kwargs)
+    return C4Node(**component_attributes)
