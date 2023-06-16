@@ -53,7 +53,7 @@ class SevenftNode():
     lines = [html.escape(line) for line in wrapper.wrap(description)]
     lines += [""] * (3 - len(lines))  # fill up with empty lines so it is always three
     return "<br/>".join(lines)
-
+  
   @staticmethod
   def LoadFromYaml(url: str):
     path = "_" + os.path.basename(parse.urlparse(url).path) ## Temp file
