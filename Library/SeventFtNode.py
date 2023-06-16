@@ -154,7 +154,7 @@ def Code(name, language="", description="", external=False, **kwargs):
         "technology": language,
         "type": "External Component" if external else "Component",
         "fillcolor": "gray60" if external else "dodgerblue4",
-        "shape": "tab"
+        "shape": "note" if external else "tab"
     }
     component_attributes.update(kwargs)
     return C4Node(**component_attributes)
