@@ -145,7 +145,7 @@ class SystemBoundary(C4FormatterMixIn, Cluster):
             "style": "dashed",
         }
         attributes.update(kwargs)
-        super().__init__(label = label, graph_attr = attributes)
+        super().__init__(label = attributes.pop('label'), graph_attr = attributes)
 
 class Relationship(C4FormatterMixIn, Edge):
     def __init__(self, label = "", **kwargs):
@@ -155,4 +155,4 @@ class Relationship(C4FormatterMixIn, Edge):
             "label": self._format_edge_label(label) if label else "",
         }
         attributes.update(kwargs)
-        super().__init__(label = label, **attributes)
+        super().__init__(label = attributes.pop('label'), **attributes)
