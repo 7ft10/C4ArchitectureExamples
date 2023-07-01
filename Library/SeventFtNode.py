@@ -91,7 +91,7 @@ class System(C4Node):
     def __init__(self, name, summary = "", description = "", **kwargs):
         external = kwargs.get('external') if kwargs.get('external') else False
         attributes = {
-            "summary": "External System" if external else "System",
+            "label": "External System" if external else "System",
             "fillcolor": "gray60" if external else "dodgerblue4",
         }
         attributes.update(kwargs)
@@ -101,7 +101,7 @@ class Persona(C4Node):
     def __init__(self, name, summary = "", description = "", **kwargs):
         external = kwargs.get('external') if kwargs.get('external') else False
         attributes = {
-            "summary": "External Person" if external else "Person",
+            "label": "External Person" if external else "Person",
             "fillcolor": "gray60" if external else "dodgerblue4",
             "style": "rounded,filled",
         }
