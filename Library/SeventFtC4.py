@@ -27,14 +27,14 @@ class C4FormatterMixIn:
         lines += [""] * (3 - len(lines))  # fill up with empty lines so it is always three
         return "<br/>".join(lines)
 
-    def _format_edge_label(description):
+    def _format_edge_label(self, description):
         """Create a graphviz label string for a C4 edge"""
         wrapper = textwrap.TextWrapper(width = 24, max_lines = 3)
         lines = [html.escape(line) for line in wrapper.wrap(description)]
         text = "<br/>".join(lines)
         return f'<<font point-size="10">{text}</font>>'
 
-    def _to_bool(value):
+    def _to_bool(self, value):
         if isinstance(value, bool): return value
         if not isinstance(value, str): raise ValueError('invalid literal for boolean. Not a string.')
         valid = { 'true': True, 't': True, '1': True, 'false': False, 'f': False, '0': False }
