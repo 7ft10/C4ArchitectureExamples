@@ -5,7 +5,7 @@ description: |-
   Confluence Non-Production
 technology: Linux
 icon: https://w7.pngwing.com/pngs/282/343/png-transparent-confluence-atlassian-logo-jira-sharepoint-confluence-health-mares-building-text-logo-area.png
-label: |-
+summary: |-
   Bamboo (Server)
   Container Linux
   confluence-dev.internal.server.com.au

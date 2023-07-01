@@ -5,7 +5,7 @@ description: |-
   BitBucket
 technology: Linux
 icon: https://w7.pngwing.com/pngs/126/46/png-transparent-bitbucket-atlassian-continuous-integration-jira-confluence-vision-blue-text-trademark.png
-label: |-
+summary: |-
   BitBucket (Server)
   Container Linux
   bitbucket.internal.server.com.au

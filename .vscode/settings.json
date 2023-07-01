@@ -1,14 +1,16 @@
 {
 	"cSpell.words": [
+		"bigbankplc",
 		"dodgerblue",
 		"fixedsize",
 		"fontcolor",
 		"fontsize",
+		"graphviz",
 		"httpimport",
+		"internetbankingcomponent",
 		"invis",
 		"labelloc",
-		"outformat",
-		"graphviz"
+		"outformat"
 	],
 	"files.exclude": {
 		"_*": true,

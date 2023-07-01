@@ -5,7 +5,7 @@ description: |-
   Jira Non-Production
 technology: Linux
 icon:
-label: |-
+summary: |-
   Bamboo (Server)
   Container Linux
   jira-dev.internal.server.com.au
