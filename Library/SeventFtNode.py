@@ -208,7 +208,7 @@ class SevenftNode():
 
   def Get(self):
     md: dict = self.metadata.copy()
-    md.setdefault('external', False)
+    md.setdefault('external', 'False')
     md.setdefault('summary', '')
 
     if md.get("icon") != None:
