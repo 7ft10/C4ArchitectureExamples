@@ -217,7 +217,7 @@ class SevenftNode():
     match self.nodeType:
       case "Container":
         return Container( md.pop('name'), md.pop('summary'), md.pop('description'), **md )
-      case "Person":
+      case "Persona":
         md.setdefault('icon_path', self.default_persona_icon)
         return Persona( md.pop('name'), md.pop('summary'), md.pop('description'), **md )
       case "Database":
