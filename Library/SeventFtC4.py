@@ -34,12 +34,23 @@ class C4FormatterMixIn:
         text = "<br/>".join(lines)
         return f'<<font point-size="10">{text}</font>>'
 
+    def _to_bool(value):
+        if isinstance(value, bool): return value
+        if not isinstance(value, str): raise ValueError('invalid literal for boolean. Not a string.')
+        valid = { 'true': True, 't': True, '1': True, 'false': False, 'f': False, '0': False }
+        lower_value = value.lower()
+        if lower_value in valid:
+            return valid[lower_value]
+        else:
+            raise ValueError('invalid literal for boolean: "%s"' % value)
+
 class C4Node(C4FormatterMixIn, Node):
     def __init__(self, name, summary = "", description = "", type = "Container", **kwargs):
+        self._icon = kwargs.get('icon_path', None)
         key = f"{type}: {summary}" if summary else type
         label = self._format_node_label(name, key, description)
         attributes = {
-            "icon_path": kwargs.get('icon_path') if kwargs.get('icon_path') else None,
+            #"icon_path": kwargs.get('icon_path') if kwargs.get('icon_path') else None,
             "labelloc": "c",
             "shape": "rect",
             "width": "2.6",
@@ -56,26 +67,22 @@ class C4Node(C4FormatterMixIn, Node):
         super().__init__(label, **attributes)
 
     def _load_icon(self):
-        if self.icon_path == None:
+        if self._icon == None:
             return super()._load_icon()
         else:
-            return self.icon_path
+            return self._icon
 
 class Container(C4Node):
-    def __init__(self, name, summary = "", description = "", **kwargs):
-        attributes = { }
+    def __init__(self, name, summary = "", description = "", **kwargs:dict[str, any]):
+        external = self._to_bool(kwargs.pop('external', False))
+        attributes:dict[str, any] = { }
         attributes.update(kwargs)
         super().__init__(name, summary, description, "Container", **attributes)
 
-class Component(C4Node):
-    def __init__(self, name, summary = "", description = "", **kwargs):
-        attributes = { }
-        attributes.update(kwargs)
-        super().__init__(name, summary, description, "Component", **attributes)
-
 class Database(C4Node):
-    def __init__(self, name, summary = "", description = "", **kwargs):
-        attributes = {
+    def __init__(self, name, summary = "", description = "", **kwargs:dict[str, any]):
+        external = self._to_bool(kwargs.pop('external', False))
+        attributes:dict[str, any] = {
             "shape": "cylinder",
             "labelloc": "b",
         }
@@ -83,34 +90,42 @@ class Database(C4Node):
         super().__init__(name, summary, description, "Database", **attributes)
 
 class System(C4Node):
-    def __init__(self, name, summary = "", description = "", **kwargs):
-        external = kwargs.get('external') if kwargs.get('external') else False
-        attributes = {
-            "type": "External System" if external else "System",
+    def __init__(self, name, summary = "", description = "", **kwargs:dict[str, any]):
+        external = self._to_bool(kwargs.pop('external', False))
+        attributes:dict[str, any] = {
+            "label2": "External System" if external else "System",
             "fillcolor": "gray60" if external else "dodgerblue4",
         }
         attributes.update(kwargs)
         super().__init__(name, summary, description, "Database", **attributes)
 
 class Persona(C4Node):
-    def __init__(self, name, summary = "", description = "", **kwargs):
-        external = kwargs.get('external') if kwargs.get('external') else False
-        attributes = {
-            "type": "External Person" if external else "Person",
+    def __init__(self, name, summary = "", description = "", **kwargs:dict[str, any]):
+        external = self._to_bool(kwargs.get('external', False))
+        attributes:dict[str, any] = {
+           "_icon": kwargs.get('icon_path', None),
+            "label2": "External Person" if external else "Person",
             "fillcolor": "gray60" if external else "dodgerblue4",
             "style": "rounded,filled",
         }
         attributes.update(kwargs)
-        super().__init__(name, summary, description, "Database", **attributes)
+        super().__init__(name, summary, description, "Persona", **attributes)
+
+class Component(C4Node):
+    def __init__(self, name, summary = "", description = "", **kwargs:dict[str, any]):
+        external = self._to_bool(kwargs.pop('external', False))
+        attributes:dict[str, any] = { }
+        attributes.update(kwargs)
+        super().__init__(name, summary, description, "Component", **attributes)
 
 class Code(C4Node):
-    def __init__(self, name, summary = "", description = "", **kwargs):
+    def __init__(self, name, summary = "", description = "", **kwargs:dict[str, any]):
+        external = self._to_bool(kwargs.get('external', False))
+        type = kwargs.pop('type') if kwargs.get('type') else "module"
         shape = "note"
-        external = kwargs.get('external') if kwargs.get('external') else False
-        type = "module"
         if type == "abstract": shape = "tab" ## module
         if type == "interface": shape = "circle"
-        attributes = {
+        attributes:dict[str, any] = {
             "fixedsize": "true" if shape == "circle" else "false",
             "fillcolor": "gray60" if external else "dodgerblue4",
             "shape": shape,
@@ -123,7 +138,7 @@ class Code(C4Node):
 
 class SystemBoundary(C4FormatterMixIn, Cluster):
     def __init__(self, label, **kwargs):
-        attributes = {
+        attributes:dict[str, any] = {
             "label": html.escape(label),
             "bgcolor": "white",
             "margin": "16",
@@ -134,7 +149,7 @@ class SystemBoundary(C4FormatterMixIn, Cluster):
 
 class Relationship(C4FormatterMixIn, Edge):
     def __init__(self, label = "", **kwargs):
-        attributes = {
+        attributes:dict[str, any] = {
             "style": "dashed",
             "color": "gray60",
             "label": self._format_edge_label(label) if label else "",

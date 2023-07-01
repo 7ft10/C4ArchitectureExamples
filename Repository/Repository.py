@@ -2,8 +2,10 @@
 from urllib import request
 
 baseUrl = "https://raw.githubusercontent.com/7ft10/C4ArchitectureExamples/main/"
-[name, response] = request.urlretrieve(baseUrl + 'Library/SeventFtNode.py', '_SeventFtNode.py')
-from _SeventFtNode import SevenftRepository, SevenftNode
+##[name, response] = request.urlretrieve(baseUrl + 'Library/SeventFtNode.py', '_SeventFtNode.py')
+##from _SeventFtNode import SevenftRepository, SevenftNode
+
+from Library.SeventFtNode import SevenftRepository, SevenftNode
 
 #@markdown ## Personas
 class _Personas(SevenftRepository):
