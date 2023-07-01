@@ -2,7 +2,7 @@
 
 ## Why
 
-Keeping architecture diagrams up to date is difficult. Creating them is just as difficult. Architects spend most of their time gathering the right icons, drawing lines in Miro or Viso making sure that they are the right type etc. etc. etc. What a waste of time.
+Keeping architecture diagrams up to date is difficult. Creating them is just as difficult. Architects spend most of their time gathering the right icons, drawing lines in Miro or Visio making sure that they are the right type etc. etc. etc. What a waste of time.
 
 Instead architects should be focused on ensuring that the current state is correct and that proposed changes to the enterprise ecosystem have taken into account all other systems that may be impacted.
 
@@ -16,7 +16,7 @@ Colab is a free tool for google users to run end edit Jupyter files which makes 
 
 *C4 Model* is a great starting point for any architecture diagram repository as they can easily map to the the levels of testing, for example context is system testing, code is unit testing. With the right diagrams and subsequently the right level of thinking architecture, development and testing can all use the same diagrams to create meaningful and valuable assets for the company. See <https://c4model.com/> for more details.
 
-*Diagrams* is a phyton library that allows for diagrams to be created from code. See <https://diagrams.mingrammer.com/docs/nodes/c4> for more details.
+*Diagrams* is a Python library that allows for diagrams to be created from code. See <https://diagrams.mingrammer.com/docs/nodes/c4> for more details.
 
 ## How to run
 

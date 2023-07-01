@@ -1,6 +1,9 @@
 {
 	"cSpell.words": [
+		"ADAC",
 		"bigbankplc",
+		"CMDB",
+		"Colab",
 		"dodgerblue",
 		"fixedsize",
 		"fontcolor",
@@ -10,7 +13,8 @@
 		"internetbankingcomponent",
 		"invis",
 		"labelloc",
-		"outformat"
+		"outformat",
+		"Visio"
 	],
 	"files.exclude": {
 		"_*": true,
