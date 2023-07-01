@@ -58,7 +58,7 @@ There are two sections to a repository, the first loads the helper classes.
 ```python
 from urllib import request
 [name, response] = request.urlretrieve('Repository/SeventFtNode.py', '_SeventFtNode.py')
-from _SeventFtNode import SevenftRepository, SevenftNode
+from _SeventFtNode import SevenftRepository, C4Node
 ```
 
 The second are the namespaces that encapsulate the systems, personas, etc. The following example shows a persona namespace with a banking customer persona loaded from the repository yaml file.
@@ -66,7 +66,7 @@ The second are the namespaces that encapsulate the systems, personas, etc. The f
 ```python
 class _Personas(SevenftRepository):
   def __init__(self):
-    self.BankingCustomer:SevenftNode = SevenftNode.LoadFromYaml('Repository/Personas/Banking%20Customer.yaml')
+    self.BankingCustomer:C4Node = Factory.LoadFromYaml('Repository/Personas/Banking%20Customer.yaml')
 globals()['Personas'] = _Personas()
 ```
 
