@@ -121,14 +121,14 @@ class Component(C4Node):
 class Code(C4Node):
     def __init__(self, name, summary = "", description = "", **kwargs:dict[str, any]):
         external = self._to_bool(kwargs.get('external', False))
-        type = kwargs.pop('type') if kwargs.get('type') else "module"
-        shape = "note"
-        if type == "abstract": shape = "tab" ## module
-        if type == "interface": shape = "circle"
+        match kwargs.pop('type', "module"):
+            case "module": shape = "note"
+            case "abstract": shape = "tab"
+            case "interface": shape = "circle"
         attributes:dict[str, any] = {
+            "shape": shape,
             "fixedsize": "true" if shape == "circle" else "false",
             "fillcolor": "gray60" if external else "dodgerblue4",
-            "shape": shape,
             "fontcolor": "black" if shape == "circle" else "white",
             "width": "0.6" if shape == "circle" else "2.6",
             "height": "0.6" if shape == "circle" else "1.6",

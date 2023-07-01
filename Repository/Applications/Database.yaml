@@ -4,4 +4,4 @@ name: Database
 description: |-
   Stores user registration information,
   hashed authentication, credentials, access logs, etc.
-external: SQL Server
+technology: SQL Server
