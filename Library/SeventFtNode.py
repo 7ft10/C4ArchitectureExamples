@@ -91,7 +91,7 @@ class System(C4Node):
     def __init__(self, name, summary = "", description = "", **kwargs):
         external = kwargs.get('external') if kwargs.get('external') else False
         attributes = {
-            "type": "External System" if external else "System",
+            "summary": "External System" if external else "System",
             "fillcolor": "gray60" if external else "dodgerblue4",
         }
         attributes.update(kwargs)
@@ -101,7 +101,7 @@ class Persona(C4Node):
     def __init__(self, name, summary = "", description = "", **kwargs):
         external = kwargs.get('external') if kwargs.get('external') else False
         attributes = {
-            "type": "External Person" if external else "Person",
+            "summary": "External Person" if external else "Person",
             "fillcolor": "gray60" if external else "dodgerblue4",
             "style": "rounded,filled",
         }
@@ -112,7 +112,7 @@ class Code(C4Node):
     def __init__(self, name, summary = "", description = "", **kwargs):
         shape = "note"
         external = kwargs.get('external') if kwargs.get('external') else False
-        type = "module"
+        type = kwargs.pop('type') if kwargs.get('type') else "module"
         if type == "abstract": shape = "tab" ## module
         if type == "interface": shape = "circle"
         attributes = {
