@@ -1,5 +1,5 @@
 id: BankingCustomer
-nodeType: Person
+nodeType: Persona
 name: Personal Banking Customer
 description: |-
   A customer of the bank with

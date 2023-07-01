@@ -7,7 +7,8 @@
 		"httpimport",
 		"invis",
 		"labelloc",
-		"outformat"
+		"outformat",
+		"graphviz"
 	],
 	"files.exclude": {
 		"_*": true,
