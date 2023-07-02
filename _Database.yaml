@@ -1,0 +1,7 @@
+id: Database
+nodeType: Container
+name: Database
+description: |-
+  Stores user registration information,
+  hashed authentication, credentials, access logs, etc.
+technology: SQL Server
