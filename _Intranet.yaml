@@ -1,8 +1,0 @@
-id: Intranet
-nodeType: System
-name: Intranet
-description: |-
-  The Hub
-notes: |-
-  Part of the on-prem confluence implementation,
-  to be migrated not a new system.

@@ -17,7 +17,7 @@
 		"Visio"
 	],
 	"files.exclude": {
-		"_*": true,
-		"**/__**__/**": true
+		"_*.*": true,
+		"**/__pycache__/**": true
 	}
 }
