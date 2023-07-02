@@ -1,6 +1,4 @@
-from SeventFt10.C4.Repository import Repository
-from SeventFt10.C4.Factory import Factory
-from SeventFt10.C4.Diagrams import C4Node
+from SeventFt10.C4 import Repository, Factory, C4Node
 
 baseUrl = "https://raw.githubusercontent.com/7ft10/C4ArchitectureExamples/main/"
 
