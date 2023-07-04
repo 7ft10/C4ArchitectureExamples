@@ -16,13 +16,11 @@ Colab is a free tool for google users to run end edit Jupyter files which makes 
 
 *C4 Model* is a great starting point for any architecture diagram repository as they can easily map to the the levels of testing, for example context is system testing, code is unit testing. With the right diagrams and subsequently the right level of thinking architecture, development and testing can all use the same diagrams to create meaningful and valuable assets for the company. See <https://c4model.com/> for more details.
 
-*Diagrams* is a Python library that allows for diagrams to be created from code. See <https://diagrams.mingrammer.com/docs/nodes/c4> for more details.
+*SeventFt10.Python.C4diagrams* is a Python library that uses the *diagrams* library, to create diagrams from code. See <https://diagrams.mingrammer.com/docs/nodes/c4> for more details.
 
 ## How to run
 
-Run notebook cells in order. Please install "diagrams" first, and then default settings to correctly set up the environment.
-
-The simplest way to do this is Ctrl-F9 to "Run all".
+Run notebook cells in order. The simplest way to do this is Ctrl-F9 to "Run all".
 
 ## Create Repository
 
@@ -53,43 +51,36 @@ sourceCodeLocation: github/dddd
 
 These attributes can be used for other details within the diagrams.
 
-There are two sections to a repository, the first loads the helper classes.
-
-```python
-from urllib import request
-[name, response] = request.urlretrieve('Repository/SeventFtNode.py', '_SeventFtNode.py')
-from _SeventFtNode import SevenftRepository, C4Node
-```
-
-The second are the namespaces that encapsulate the systems, personas, etc. The following example shows a persona namespace with a banking customer persona loaded from the repository yaml file.
+A repository has namespaces encapsulate the systems, personas, etc. The following example shows a persona namespace with a banking customer persona loaded from the repository yaml file.
 
 ```python
 class _Personas(SevenftRepository):
   def __init__(self):
-    self.BankingCustomer:C4Node = Factory.LoadFromYaml('Repository/Personas/Banking%20Customer.yaml')
+    self.BankingCustomer:C4Node = Factory.LoadYamlFromUrl('Repository/Personas/Banking%20Customer.yaml')
 globals()['Personas'] = _Personas()
 ```
 
 The final line puts the personas into the global namespace.
 
+First step is to load the library
+
+```python
+import os
+result = os.system('pip install git+https://github.com/7ft10/SeventFt10.Python.C4diagrams/')
+```
+
 The repository can then be loaded like this...
 
 ```python
-from urllib import request
-request.urlretrieve('https://git/main/Repository.py', 'Repository.py')
+from SeventFt10.C4 import Repository
+Repo = Repository.LoadFromUrl('https://raw.githubusercontent.com/7ft10/C4ArchitectureExamples/main/Repository/', module_name = "Repository")
 ```
 
-then loading the model and classes
-
-```python
-from Repository import Systems, Personas, DataStores, ExternalSystems
-```
-
-Then the personas, systems etc. are loaded via the global namespaces using the get function.
+Then the personas, systems etc. are loaded via the Repo variable using the get function.
 
 ```python
 with Diagram(** settings) as diagram:
-  banking_customer = Personas.BankingCustomer.Get()
+  banking_customer = Repo.Personas.BankingCustomer.Get()
 ```
 
 Repositories could also be versioned and released as required with leadership oversight and approvals. There could also be current state and future state repositories which update as new systems are added and retired.
@@ -105,8 +96,10 @@ Personas.Print()
 Or to print a specific element's details, use the print function on the element.
 
 ```python
-Personas.BankingCustomer.Print()
+Personas.BankingCustomer.DisplayMarkdown()
 ```
+
+There is also a generic DisplayMarkdown() function that can be used.
 
 ### Images
 
