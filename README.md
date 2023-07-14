@@ -69,6 +69,8 @@ import os
 result = os.system('pip install git+https://github.com/7ft10/SeventFt10.Python.C4diagrams/')
 ```
 
+or via the requirements.txt file. 
+
 The repository can then be loaded like this...
 
 ```python
