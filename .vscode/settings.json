@@ -5,6 +5,7 @@
 		"CMDB",
 		"Colab",
 		"dodgerblue",
+		"doublecircle",
 		"fixedsize",
 		"fontcolor",
 		"fontsize",
@@ -13,9 +14,14 @@
 		"internetbankingcomponent",
 		"invis",
 		"labelloc",
+		"lightgray",
 		"mxfile",
 		"mxgraphmodel",
+		"newrank",
+		"orthoyx",
 		"outformat",
+		"pygraphviz",
+		"rankdir",
 		"Visio"
 	],
 	"files.exclude": {
